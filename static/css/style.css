@@ -10,6 +10,11 @@ ul, li{
 	list-style: none;
 }
 
+header{
+	height: 100px;
+	background: #000000;
+}
+
 @media only screen and (min-width: 768px) {
 	
 }
