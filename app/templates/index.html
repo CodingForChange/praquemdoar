@@ -4,11 +4,11 @@
 		<form action="#" method="post" id="form-login" class="forms form-login">
 			<section class="large-4 columns">
 				<label for="login">login</label>
-				<input type="text" id="login" name="login" placeholder="login" />
+				<input type="text" id="login" name="login" placeholder="login" required />
 			</section>
 			<section class="large-4 columns">
 				<label for="senha">senha</label>
-				<input type="password" id="senha" name="senha" placeholder="senha" />
+				<input type="password" id="senha" name="senha" placeholder="senha" required />
 			</section>
 			<section class="large-2 columns">
 				<input type="submit" id="env-login" class="form-button" value="ENTRAR" />
@@ -82,5 +82,23 @@
 			</div>
 		</div>
 	</div>
+	<section class="news">
+		<section class="row">
+			<h2>Receba informações das instituições cadastradas</h2>
+			<form action="#" method="post" id="form-login" class="forms form-login">
+				<section class="large-5 columns">
+					<label for="nome">nome</label>
+					<input type="text" id="nome" name="nome" placeholder="nome" required />
+				</section>
+				<section class="large-5 columns">
+					<label for="email">email</label>
+					<input type="email" id="email" name="email" placeholder="email" required />
+				</section>
+				<section class="large-2 columns">
+					<input type="submit" id="env-news" class="form-button" value="CADASTRAR" />
+				</section>			
+			</form>
+		</section>
+	</section>
 
 {%endblock%}
