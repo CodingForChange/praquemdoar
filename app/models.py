@@ -19,6 +19,7 @@ class Ong(db.Model):
     email = db.Column(db.String(120))
     logo = db.Column(db.String(120))
     descricao = db.Column(db.String(200))
+    website = db.Column(db.String(120))
     twitter = db.Column(db.String(120))
     facebook = db.Column(db.String(120))
     googleplus = db.Column(db.String(120))
