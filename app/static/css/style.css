@@ -177,6 +177,19 @@ input.busca{
 	margin-top: 30px;
 }
 
+.forms span{
+	position: relative;
+}
+
+.forms span i{
+	float: right;
+	position: relative;
+	right: 20px;
+	font-size: 22px;
+	top: -58px;
+	color: #525252;
+}
+
 footer{
 	padding: 20px 15px;
 	color: #9f9f9f;
