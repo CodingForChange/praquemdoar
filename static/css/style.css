@@ -1,0 +1,19 @@
+*{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1,h2,h3,h4,h5{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+ul, li{
+	list-style: none;
+}
+
+@media only screen and (min-width: 768px) {
+	
+}
+
+@media only screen and (max-width: 767px) {
+
+}
