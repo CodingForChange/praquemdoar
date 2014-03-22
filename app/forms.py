@@ -26,7 +26,7 @@ class DoacaoForm(Form):
     nome = TextField('nome', validators=[Required(), Length(max=120)])
     descricao = TextField('descricao', validators=[Length(max=200)])
     logradouro = TextField('logradouro', validators=[Required(),
-                                                     Length(max=200])
+                                                     Length(max=200]))
     numero = TextField('numero', validators=[Required(), Length(max=20)])
     complemento = TextField('complemento')
     bairro = TextField('bairro', validators=[Required(), Length(max=120)])
@@ -36,3 +36,7 @@ class DoacaoForm(Form):
     retira = BooleanField('retira', validators=[Required()])
     email = TextField('email')
     tags = TextField('tags', validators=[Required()])
+
+
+class SearchForm(Form):
+    search = TextField('search', validators=[Required()])
