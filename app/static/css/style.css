@@ -311,6 +311,72 @@ footer{
 	display: none;
 }
 
+.banner-instituicao {
+	/*padding: 10px 0px;*/
+}
+
+.logo-instituicao {
+	margin-top: 10px;
+	/*margin-left: 20px;*/
+}
+
+.info-inst-soc {
+	margin-top: 50px;
+}
+
+.texto-instituicao, .texto-instituicao h2 {
+	color: #777777;
+}
+
+.info-inst-soc i {
+	margin: 5px;
+}
+
+.box-membro-desde {
+	background-color: #FFFFFF;
+	width: 150px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.data-membro {
+	font-size: 22px;
+}
+
+.botoes-contato {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.botoes-contato .botao-site{
+	border: none;
+	background: #983270;
+	color: #FFFFFF;
+	border-radius: 0px;
+	padding: 5px 25px;
+}
+
+.botoes-contato .botao-contato{
+	border: none;
+	background: #006EB9;
+	color: #FFFFFF;
+	border-radius: 0px;
+	padding: 5px 25px;
+}
+
+.bl-cont {
+	display: none;
+}
+
+.bl-cont h2{
+	color:#525252;
+	font-size: 30px;
+	font-weight: normal;
+	padding-left: 15px;
+	margin-top: 30px;
+	
+}
+
 @media only screen and (min-width: 768px) {
 	
 }
