@@ -30,6 +30,18 @@ class Ong(db.Model):
                               lazy='dynamic'
                               )
 
+    def is_authenticated(self):
+        return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return False
+    
+    def get_id(self):
+        return unicode(self.id)
+
     def __repr__(self):  # pragma: no cover
         return '<Ong %r>' % (self.nome)
 
