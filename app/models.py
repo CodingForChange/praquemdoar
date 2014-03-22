@@ -10,6 +10,7 @@ doacoes = db.Table('doacoes',
                              db.ForeignKey('doacao.id'))
                    )
 
+
 class Ong(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nickname = db.Column(db.String(20), index=True, unique=True)
@@ -39,7 +40,7 @@ class Ong(db.Model):
 
     def is_anonymous(self):
         return False
-    
+
     def get_id(self):
         return unicode(self.id)
 
@@ -75,3 +76,12 @@ class Status(db.Model):
 
     def __repr__(self):  # pragma: no cover
         return '<Status %r>' % (self.nome)
+
+
+class Newsletter(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(120))
+    email = db.Column(db.String(120))
+
+    def __repr__(self):
+        return '<Newsletter %r>' % (self.nome)
