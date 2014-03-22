@@ -85,7 +85,14 @@ h1 span{
 	font-size: 22px;
 }
 
+.forms textarea{
+	border-radius: 4px;
+	height: 110px;
+	font-size: 22px;
+}
+
 .right-button{
+	clear: both;
 	float: right;
 }
 
@@ -173,8 +180,13 @@ input.busca{
 	color:#525252;
 	font-size: 30px;
 	font-weight: normal;
-	padding-left: 15px;
 	margin-top: 30px;
+}
+
+.dados-login{
+	background: #b64f8b;
+	padding: 25px 0px 0px 0px;
+	margin-bottom: 50px;
 }
 
 .forms span{
