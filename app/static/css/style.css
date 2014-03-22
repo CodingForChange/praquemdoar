@@ -85,6 +85,10 @@ h1 span{
 	font-size: 22px;
 }
 
+.right-button{
+	float: right;
+}
+
 .login{	
 	display: none;
 }
@@ -163,6 +167,14 @@ input.busca{
 	font-weight: normal;
 	margin-bottom: 0px;
 	color: #525252;
+}
+
+.bl-cad h2{
+	color:#525252;
+	font-size: 30px;
+	font-weight: normal;
+	padding-left: 15px;
+	margin-top: 30px;
 }
 
 footer{

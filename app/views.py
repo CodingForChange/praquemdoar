@@ -16,4 +16,4 @@ def load_user(id):
 
 @app.route('/cadastro')
 def cadastro():
-    return None
+    return render_template('cadastro.html')
