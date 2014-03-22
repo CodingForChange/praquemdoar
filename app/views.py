@@ -17,3 +17,8 @@ def load_user(id):
 @app.route('/cadastro')
 def cadastro():
     return None
+
+
+@app.route('/instituicao')
+def instituicao():
+    return None
