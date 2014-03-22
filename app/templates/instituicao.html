@@ -1,23 +1,6 @@
 {%extends "base.html" %}
 {%block content%}
-	<section class="row login">
-		<form action="#" method="post" id="form-login" class="forms form-login">
-			<section class="large-4 columns">
-				<label for="login">login</label>
-				<input type="text" id="login" name="login" placeholder="login" required />
-			</section>
-			<section class="large-4 columns">
-				<label for="senha">senha</label>
-				<input type="password" id="senha" name="senha" placeholder="senha" required />
-			</section>
-			<section class="large-2 columns">
-				<input type="submit" id="env-login" class="form-button" value="ENTRAR" />
-			</section>
-			<section class="large-2 columns link-cad">
-				<a href="#">NÃO TEM UMA CONTA?<span>CADASTRE-SE</span></a>
-			</section>
-		</form>
-	</section>
+	
 	<section class="banner">
 		<section class="row">
 			<section class="large-2 columns logo-instituicao">
@@ -28,10 +11,6 @@
 				A Liga Solidária, fundada em 10 de março de 1923 como Liga das Senhoras Católicas de São Paulo, é uma organização social sem fins lucrativos que desenvolve programas socioeducativos e de cidadania que beneficiam mais de 3.200 pessoas.
 				<br /><br />
 				Nosso foco é a educação para a construção gradual do conhecimento e preparo para autonomia, em sintonia com as Orientações Curriculares Nacionais para a Educação Infantil e com o Estatuto da Criança e do Adolescente (ECA). Acreditamos que por meio da educação é que se alcança a verdadeira cidadania.
-				<br /><br />
-				Envolvemos as famílias dos beneficiários de todos os nossos programas, pois uma relação de confiança e o trabalho em parceria são fundamentais para o desenvolvimento físico, intelectual e emocional, além de possibilitar a compreensão das suas características individuais e suas demandas.
-				<br /><br />
-				No papel de articuladores, trabalhamos para fortalecer e defender os direitos da comunidade onde estamos, participando de diversas redes sociais, como Conselho Estadual dos Direitos da Infância e do Adolescente (CONDECA), Conselho de Segurança Comunitária, Fórum de Educação Infantil (FEI), Fórum da Criança e do Adolescente (FOCA), entre outros.
 
 				<section class="botoes-contato">
 					<input type="button" id="visite-site" class="botao-site" value="VISITE O SITE" />
@@ -75,8 +54,117 @@
 		</section>
 	</section> -->
 
-	<section class="bl-pedidos" >
+	<section class="row bl-pedidos" >
 
+		<section class="large-offset-2 large-8 columns container-pedidos">
+			<section class="tit-interacoes">Pedidos de Doações</section>
+
+			<section class="sec-paginacao">
+
+				<ul class="pagination"> 
+					<li class="arrow unavailable"><a href="">&laquo;</a></li> 
+					<li class="current"><a href="">1</a></li> 
+					<li><a href="">2</a></li> 
+					<li><a href="">3</a></li> 
+					<li><a href="">4</a></li> 
+					<li class="unavailable"><a href="">&hellip;</a></li> 
+					<li><a href="">12</a></li> 
+					<li><a href="">13</a></li> 
+					<li class="arrow"><a href="">&raquo;</a></li> 
+				</ul>
+			</section>
+
+			<section class="lista-pedidos">
+				
+				<section class="item-doacao">
+					<span class="label round gray">24 minutos atrás</span>
+					<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> Alta Prioridade</span>
+					<section class="titulo-doacao">
+						CAMPANHA DO AGASALHO
+					</section>
+					<section class="texto-doacao">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
+						<br /><br />
+						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
+					</section>
+					<section class="tags-doacao">
+						Tags 
+						<span class="label round gray">ROUPAS</span> 
+						<span class="label round gray">COBERTORES</span> 
+					</section>
+				</section>
+
+				<section class="item-doacao">
+					<span class="label round gray">24 minutos atrás</span>
+					<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> Alta Prioridade</span>
+					<section class="titulo-doacao">
+						CAMPANHA DO AGASALHO
+					</section>
+					<section class="texto-doacao">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
+						<br /><br />
+						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
+					</section>
+					<section class="tags-doacao">
+						Tags 
+						<span class="label round gray">ROUPAS</span> 
+						<span class="label round gray">COBERTORES</span> 
+					</section>
+				</section>
+
+				<section class="item-doacao">
+					<span class="label round gray">24 minutos atrás</span>
+					<section class="titulo-doacao">
+						CAMPANHA DO AGASALHO
+					</section>
+					<section class="texto-doacao">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
+						<br /><br />
+						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
+					</section>
+					<section class="tags-doacao">
+						Tags 
+						<span class="label round gray">ROUPAS</span> 
+						<span class="label round gray">COBERTORES</span> 
+					</section>
+				</section>
+
+				<section class="item-doacao">
+					<span class="label round gray">24 minutos atrás</span>
+					<section class="titulo-doacao">
+						CAMPANHA DO AGASALHO
+					</section>
+					<section class="texto-doacao">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
+						<br /><br />
+						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
+					</section>
+					<section class="tags-doacao">
+						Tags 
+						<span class="label round gray">ROUPAS</span> 
+						<span class="label round gray">COBERTORES</span> 
+					</section>
+				</section>
+
+
+			</section>
+
+			<section class="sec-paginacao">
+
+				<ul class="pagination"> 
+					<li class="arrow unavailable"><a href="">&laquo;</a></li> 
+					<li class="current"><a href="">1</a></li> 
+					<li><a href="">2</a></li> 
+					<li><a href="">3</a></li> 
+					<li><a href="">4</a></li> 
+					<li class="unavailable"><a href="">&hellip;</a></li> 
+					<li><a href="">12</a></li> 
+					<li><a href="">13</a></li> 
+					<li class="arrow"><a href="">&raquo;</a></li> 
+				</ul>
+			</section>
+
+		</section>
 	</section>
 
 	<script type="text/javascript" src="/static/js/instituicao.js"></script>

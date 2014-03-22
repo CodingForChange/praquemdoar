@@ -385,8 +385,58 @@ footer{
 	font-size: 30px;
 	font-weight: normal;
 	padding-left: 15px;
-	margin-top: 30px;
-	
+	margin-top: 30px;	
+}
+
+.sec-paginacao {
+	padding-top: 5px;
+	float: right;
+}
+
+.container-pedidos {
+	padding-top: 10px;
+}
+
+.tit-interacoes {
+	font-size: 32px;
+	float: left;
+	color: #727272;
+}
+
+.lista-pedidos {
+	border-top: 3px solid #E8E8E8;
+	clear: both;
+}
+
+.item-doacao {
+	padding: 10px;
+	border-bottom: 1px solid #E8E8E8;
+}
+
+.item-doacao .label {
+	background-color: #DFDFDF;
+	color: #A2A2A2;
+	font-weight: normal;
+}
+
+.item-doacao .prioridade {
+	background-color: #C80600;
+	color: #FFFFFF;
+}
+
+.titulo-doacao {
+	color: #646464;
+	font-weight: bold;
+	margin: 10px 0px;
+}
+
+.texto-doacao {
+	color: #646464;
+	font-weight: normal;
+}
+
+.tags-doacao {
+	margin: 10px 0px;
 }
 
 @media only screen and (min-width: 768px) {
