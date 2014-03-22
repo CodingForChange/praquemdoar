@@ -48,6 +48,8 @@ class Doacao(db.Model):
     retirar = db.Column(db.Boolean)
     email = db.Column(db.String(120))
     status_id = db.Column(db.Integer, db.ForeignKey('status.id'))
+    data_cadastro = db.Column(db.DateTime)
+    tags = db.Column(db.String(200))
 
     def __repr__(self):  # pragma: no cover
         return '<Doacao %r>' % (self.nome)
