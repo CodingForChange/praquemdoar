@@ -26,3 +26,8 @@ def load_user(id):
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')
+
+
+@app.route('/instituicao')
+def instituicao():
+    return render_template('instituicao.html')
