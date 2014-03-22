@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.login import LoginManager
 from config import basedir, ADMINS
 
 
@@ -8,6 +9,9 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 db = SQLAlchemy(app)
+
+lm = LoginManager()
+lm.init_app(app)
 
 if not app.debug:
     import logging
