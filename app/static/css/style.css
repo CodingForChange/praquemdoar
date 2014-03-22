@@ -15,6 +15,98 @@ header{
 	background: #000000;
 }
 
+.logo{
+	margin-top: 5px;
+}
+
+.logo img{
+	height: 90px;
+	float: left;
+	position: relative;
+	left: 30px;
+}
+
+h1{
+	color: #000000;
+	background: #FFFFFF;
+	float: left;
+	font-size: 31px;
+	line-height: 22px;
+	padding: 6px 10px 8px 38px;
+	margin-top: 15px;
+}
+
+h1 span{
+	display: block;
+	font-size: 18px;
+	font-weight: 100;
+}
+
+.menu{
+	float: right;
+	margin-bottom: 0px;
+	margin-top: 25px;
+}
+
+.menu li{
+	float:left;
+	padding: 5px 20px;
+}
+
+.menu li a{
+	font-size: 24px;
+	font-weight: 200;
+	color: #FFFFFF;
+}
+
+.menu li a:hover{
+	text-decoration: underline;
+}
+
+.menu li a i{
+	margin-right: 10px;
+}
+
+.menu li:last-child{
+	background: #983270;
+}
+
+footer{
+	padding: 20px 15px;
+	color: #9f9f9f;
+	margin-top: 45px !important;
+	border-top: 3px solid #e8e8e8;
+}
+
+.foot-left a{
+	float: left;
+	color: #9f9f9f;
+	font-size: 14px;
+	padding-top: 8px;
+}
+
+.foot-left a:first-child:after{
+	content: '•';
+	padding: 0px 8px;
+	display: inline-block;
+}
+
+.foot-right{
+	text-align: right;
+}
+
+.foot-right p{
+	float: right;
+	margin-bottom: 0px;
+	padding-right: 15px;
+}
+
+.foot-right img{
+	float: right;
+	height: 30px;
+	color: #9f9f9f;
+}
+
 @media only screen and (min-width: 768px) {
 	
 }
