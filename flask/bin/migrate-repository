@@ -1,10 +1,10 @@
 #!/home/alexandre/Projetos/praquemdoar/flask/bin/python
-# PBR Generated from u'console_scripts'
-
+# EASY-INSTALL-ENTRY-SCRIPT: 'sqlalchemy-migrate==0.7.2','console_scripts','migrate-repository'
+__requires__ = 'sqlalchemy-migrate==0.7.2'
 import sys
+from pkg_resources import load_entry_point
 
-from migrate.versioning.migrate_repository import main
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('sqlalchemy-migrate==0.7.2', 'console_scripts', 'migrate-repository')()
+    )
