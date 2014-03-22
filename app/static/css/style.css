@@ -191,10 +191,12 @@ footer{
 	/*height: 300px;*/
 	/*background-color: #009900;*/
 	padding: 10px;
+	background-color: #6A6A6A;
 }
 
 .box-contador {
 	margin: 10px;
+	margin-top: 0px;
 	padding: 10px;
 	background-color: #007BA4;
 	padding-bottom: 40px;
