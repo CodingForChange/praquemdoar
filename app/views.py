@@ -15,7 +15,7 @@ def search_results(query):
         return redirect(url_for('search_results', query=form.search.data))
     return render_template('search.html',
                            query=query,
-                           results=results
+                           results=results,
                            form=form)
 
 
