@@ -12,7 +12,7 @@ class NewsletterForm(Form):
 class CadastroForm(Form):
     nome = TextField('nome', validators=[Required(), Length(max=120)])
     email = TextField('email', validators=[Required(), Length(max=120)])
-    cnpj = IntergerField('cnpj', validators=[Required()])
+    cnpj = IntegerField('cnpj', validators=[Required()])
     nickname = TextField('nickname', validators=[Required()])
     senha = TextField('senha', validators=[Required(), Length(max=200)])
     logo = TextField('logo')
