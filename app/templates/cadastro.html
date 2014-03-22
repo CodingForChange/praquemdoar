@@ -1,23 +1,82 @@
 {%extends "base.html" %}
 {%block content%}
-	<section class="bl-cad inst">
-		<section class="row">
-			<section class="large-offset-2 large-8 columns">
-				<h2>Cadastrar Instituição</h2>
-				<form action="#" method="post" id="form-login" class="forms form-login">
+	<section class="bl-cad inst">					
+		<form action="#" method="post" id="form-login" class="forms form-login">
+			<section class="row">
+				<section class="large-offset-2 large-8 columns">
+					<h2>Cadastrar Instituição</h2>
 					<span>
-						<label for="login">login</label>
-						<input type="text" id="login" name="login" placeholder="login" required />
+						<label for="cnpj">cnpj</label>
+						<input type="text" id="cnpj" name="cnpj" placeholder="CNPJ*" required />
 						<i class="fa fa-search"></i>
 					</span>
 					<span>
-						<label for="senha">senha</label>
-						<input type="password" id="senha" name="senha" placeholder="senha" required />
+						<label for="razao_social">razao social</label>
+						<input type="text" id="razao_social" name="razao_social" placeholder="Razão Social*" required />
 						<i class="fa fa-search"></i>
-					</span>
-					<input type="submit" id="env-inst" class="form-button right-button" value="CADASTRAR" />															
-				</form>
+					</span>					
+				</section>
 			</section>
-		</section>
+			<section class="dados-login">
+				<section class="row">
+					<section class="large-offset-2 large-8 columns">
+						<span>
+							<label for="login">login</label>
+							<input type="text" id="login" name="login" placeholder="Login*" required />
+						</span>														
+					</section>
+					<section class="large-offset-2 large-4 columns">
+						<span>
+							<label for="senha">senha</label>
+							<input type="password" id="senha" name="senha" placeholder="Senha*" required />
+						</span>														
+					</section>
+					<section class="large-4 columns left">
+						<span>
+							<label for="confirmacao">confirmacao</label>
+							<input type="text" id="confirmacao" name="confirmacao" placeholder="Confirmação*" required />
+						</span>														
+					</section>
+				</section>
+			</section>
+			<section class="row">
+				<section class="large-offset-2 large-8 columns">					
+					<span>
+						<label for="email">email contato</label>
+						<input type="email" id="email" name="email" placeholder="Email de contato" />
+						<i class="fa fa-envelope-o"></i>
+					</span>
+					<span>
+						<label for="logo">Logo da Instituição</label>
+						<input type="file" id="logo" name="logo" placeholder="Logo da Instituição" />
+					</span>
+					<span>
+						<label for="descricao">Descrição</label>
+						<textarea id="descricao" name="descricao" placeholder="Descrição" ></textarea>
+					</span>
+					<span>
+						<label for="site">Site da Instituição</label>
+						<input type="text" id="site" name="site" placeholder="Site da Instituição" />
+						<i class="fa fa-globe"></i>
+					</span>
+					<span>
+						<label for="twitter">Twitter</label>
+						<input type="text" id="twitter" name="twitter" placeholder="Twitter" />
+						<i class="fa fa-twitter"></i>
+					</span>
+					<span>
+						<label for="facebook">Fan Page</label>
+						<input type="text" id="facebook" name="facebook" placeholder="Fan Page" />
+						<i class="fa fa-facebook-square"></i>
+					</span>
+					<span>
+						<label for="google">Google plus</label>
+						<input type="text" id="google" name="google" placeholder="Google plus" />
+						<i class="fa fa-google-plus"></i>
+					</span>
+					<input type="submit" id="env-inst" class="form-button right-button" value="CADASTRAR" />
+				</section>
+			</section>
+		</form>		
 	</section>
 {%endblock%}
