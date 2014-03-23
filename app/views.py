@@ -76,3 +76,9 @@ def instituicao():
 @app.route('/doacao')
 def doacao():
     return render_template('doacao.html')
+
+
+@app.route('/instituicao-contato')
+def instituicao_contato():
+    return render_template('instituicao-contato.html')
+    
