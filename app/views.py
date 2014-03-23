@@ -81,6 +81,7 @@ def doacao():
     return render_template('doacao.html')
 
 
-@app.route('/instituicao-contato')
-def instituicao_contato():
-    return render_template('instituicao-contato.html')
+@app.route('/<ong>/contato')
+def ong_contato(ong):
+    ong = Ong.query.filter_by(nickname=ong).first_or_404()
+    return render_template('ong_contato.html', ong=ong)

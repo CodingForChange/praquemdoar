@@ -1,0 +1,16 @@
+Você recebeu um email através do formulário de contato do
+**Ticket to ride**.
+
+Nome: {{name}}
+Assunto: {{subject}}
+Email: {{email}}
+URL do evento: {{url}}
+Mensagem:
+{{message}}
+
+Atenciosamente, 
+Ticket to ride Team
+
+
+
+
