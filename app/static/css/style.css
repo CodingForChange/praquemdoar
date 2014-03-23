@@ -67,6 +67,16 @@ h1 span{
 	margin-right: 10px;
 }
 
+li.menu-login{
+	color: #FFFFFF;
+	font-size: 24px;
+	font-weight: 200;
+}
+
+li.menu-login i{
+	margin-right: 10px;
+}
+
 .menu li:last-child{
 	background: #983270;
 }
@@ -588,6 +598,25 @@ footer{
 	color: #FFFFFF;
 	border-radius: 0px;
 	padding: 5px 25px;
+	margin-right: 10px;
+}
+
+.logout{
+	border: none;
+	background: #c80600;
+	color: #FFFFFF;
+	border-radius: 0px;
+	padding: 5px 25px;
+	margin-right: 10px;
+}
+
+.logout:hover{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+.logout i{
+	margin-right: 10px;
 }
 
 .botoes-contato .botao-contato{
@@ -743,6 +772,8 @@ footer{
 
 .editar-instituicao a {
 	border-bottom: 1px solid #2795B6;
+	margin: 10px 0px;
+	display: inline-table;
 }
 
 .header-single {
