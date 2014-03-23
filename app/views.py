@@ -124,6 +124,7 @@ def cadastro():
 def doacao(ong, slug):
     user = g.user
     form = LoginForm()
+    ong = Ong.query.filter_by(nickname=ong).first_or_404()
     doacao = Doacao.query.filter_by(ong=ong, slug=slug).first_or_404()
     if form.validate_on_submit():
         ong = Ong.query.filter_by(nickname=form.login.data,
@@ -164,11 +165,13 @@ def cadastro_doacao(ong):
                         cidade=form_cadastro.cidade.data,
                         estado=form_cadastro.estado.data,
                         cep=form_cadastro.cep.data,
-                        retira=form_cadastro.retira.data,
+                        retirar=form_cadastro.retirar.data,
                         email=form_cadastro.email.data,
                         tags=form_cadastro.tags.data,
-                        ong=Ong.query.get(ong.id),
-                        slug=slugfy(form_cadastro.nome.data)
+                        ong_id=ong.id,
+                        slug=slugfy(form_cadastro.nome.data),
+                        status_id=1,
+                        data_cadastro=datetime.now()
                         )
         db.session.add(doacao)
         db.session.commit()
@@ -244,3 +247,17 @@ def after_request(response):
                                                               query.context)
         app.logger.warning(log_msg)
     return response
+
+
+@app.route('/404')
+def erro_404():
+    form = LoginForm()
+    return render_template('404.html', 
+                           form=form)
+    
+    
+@app.route('/500')
+def erro_500():
+    form = LoginForm()
+    return render_template('500.html', 
+                           form=form)

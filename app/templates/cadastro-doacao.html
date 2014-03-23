@@ -6,17 +6,11 @@
 		<section class="row">
 			<section class="large-offset-2 large-8 columns">
 				<h2>Cadastrar Doação</h2>
-				<form action="#" method="post" id="form-cadastro-doacao custom" class="forms form-login">
+				<form action="" method="post" id="form-cadastro-doacao custom" class="forms form-login">
+                    {{form_cadastro.hidden_tag()}}
 					<span>
 						<label for="categoria">Categoria</label>
-						<select id="categoria" name="categoria">
-							<option value="">Categoria *</option>
-                            <option value="Roupas">Roupas</option>
-                            <option value="Dinheiro">Dinheiro</option>
-                            <option value="Moveis">Móveis</option>
-                            <option value="Eletronicos">Eletrônicos</option>
-						</select>
-						
+                        {{form_cadastro.categoria(required=True)}}						
 					</span>
 
 					<span>
@@ -26,7 +20,7 @@
 					</span>
 
 					<span>
-						<label for="nome">Descrição</label>
+						<label for="descricao">Descrição</label>
                         {{form_cadastro.descricao(placeholder='Descrição')}}
 						
 					</span>
@@ -35,20 +29,21 @@
 						<label for="email">Email</label>
                         {{form_cadastro.email(placeholder='Email de contato')}}
 					</span>
+			
+                    <span class="tags-input">
+                        {{form_cadastro.tags(required=True)}}
+						<small class="tag-small">SEPARAR TAGS POR VÍRGULA</small>
+					</span>               					
 
 					<span>
 						<label for="prioridade">Prioridade</label>
-						<select id="prioridade" name="prioridade">
-							<option value="">Prioridade *</option>
-                            <option value="Alta Prioridade">Alta Prioridade</option>
-                            <option value="Baixa Prioridade">Baixa Prioridade</option>
-						</select>
+                        {{form_cadastro.prioridade(required=True)}}
 						
 					</span>
 
 					<span class="checkbox">
 						<label for="retira">
-                        {{form_cadastro.retira(required=True)}}  Retira doação no local
+                        {{form_cadastro.retirar(required=True, type='checkbox')}}  Retira doação no local
                         </label>
 						
 						

@@ -3,14 +3,6 @@ from datetime import datetime
 from app import db
 
 
-doacoes = db.Table('doacoes',
-                   db.Column('ong_id', db.Integer,
-                             db.ForeignKey('ong.id')),
-                   db.Column('doacao_id', db.Integer,
-                             db.ForeignKey('doacao.id'))
-                   )
-
-
 class Ong(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nickname = db.Column(db.String(20), index=True, unique=True)
@@ -25,12 +17,7 @@ class Ong(db.Model):
     facebook = db.Column(db.String(120))
     googleplus = db.Column(db.String(120))
     data_cadastro = db.Column(db.DateTime)
-    doacoes = db.relationship('Doacao',
-                              secondary=doacoes,
-                              backref=db.backref('ongs',
-                                                 lazy='dynamic'),
-                              lazy='dynamic'
-                              )
+    doacoes = db.relationship('Doacao', backref='ong', lazy='dynamic')
 
     def is_authenticated(self):
         return True
@@ -61,6 +48,7 @@ class Doacao(db.Model):
     estado = db.Column(db.String(2))
     cep = db.Column(db.String(120))
     retirar = db.Column(db.Boolean)
+    ong_id = db.Column(db.Integer, db.ForeignKey('ong.id'))
     email = db.Column(db.String(120))
     status_id = db.Column(db.Integer, db.ForeignKey('status.id'))
     data_cadastro = db.Column(db.DateTime)

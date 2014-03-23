@@ -136,6 +136,85 @@ label.error{
 	color: #FFFFFF;
 }
 
+.tit-erro-pg{
+	font-size: 200px;
+	margin: 50px 0px 60px 0px;	
+	color: #525252;
+	width: 100%;
+	text-align: center;	
+}
+
+.aviso-erro-pg, .aviso-moderate-pg{
+	color: #983270;
+	padding: 150px 0px 60px 0px;
+}
+
+.aviso-erro-pg h3, .aviso-moderate-pg h3{
+	color: #983270;
+	font-size: 24px;
+	font-weight: bolder;
+	margin-bottom: 0px;
+}
+
+.aviso-erro-pg h3 i, .aviso-moderate-pg h3 i{
+	margin-right: 20px;
+}
+
+.aviso-erro-pg p, .aviso-moderate-pg p{
+	width: 65%;
+	font-size: 20px;
+	font-weight: lighter;
+	margin-left: 45px;
+}
+
+.aviso-erro-pg p a, .aviso-moderate-pg p a{
+	color: #983270;	
+}
+
+.aviso-erro-pg p a:hover, .aviso-moderate-pg a:hover{
+	text-decoration: underline;
+}
+
+.tagsinput{
+	border-radius: 10px;
+	width: 100% !important;
+	overflow-x: hidden;
+}
+
+.tagsinput input{
+	height: 25px !important;
+	padding: 0px;
+	margin: 0px;
+}
+
+div.tagsinput span.tag{
+	background: #e0e0e0 !important;
+	border-color: #e0e0e0 !important;
+	color: #525252 !important;
+	text-transform: uppercase;
+	border-radius: 5px !important;
+}
+
+div.tagsinput span.tag a{
+	color: #525252 !important;
+}
+
+.tag-small{
+	display: block;
+	margin-bottom: 20px;
+	top: 5px !important;
+}
+
+.tagsinput:before{
+	content: "Tags";
+	width: 60px;
+	position: relative;
+	float: left;
+	font-size: 22px;
+	color: #525252;
+	padding: 0px 5px;
+}
+
 .right-button{
 	clear: both;
 	float: right;

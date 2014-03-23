@@ -1,5 +1,6 @@
 from flask.ext.wtf import Form
-from wtforms import TextField, BooleanField, IntegerField, TextAreaField
+from wtforms import TextField, BooleanField, IntegerField
+from wtforms import TextAreaField, SelectField
 from wtforms.validators import Required, Length
 from app.models import Ong
 
@@ -41,12 +42,18 @@ class DoacaoForm(Form):
     cidade = TextField('cidade', validators=[Required(), Length(max=120)])
     estado = TextField('estado', validators=[Required(), Length(max=2)])
     cep = TextField('cep', validators=[Required()])
-    retira = BooleanField('retira', validators=[Required()])
+    retirar = BooleanField('retirar', validators=[Required()])
     email = TextField('email')
     tags = TextField('tags', validators=[Required()])
-    categoria = TextField('categoria', validators=[Required()])
+    categoria = SelectField('categoria', choices=[('Roupas', 'Roupas'),
+                                                   ('Dinheiro', 'Dinheiro'),
+                                                   ('Moveis', 'Moveis'),
+                                                   ('Eletronicos', 'Eletronicos')],
+                                         validators=[Required()])
     publicar = BooleanField('publicar')
-    prioridade = TextField('prioridade', validators=[Required()])
+    prioridade = SelectField('prioridade', choices=[('Alta Prioridade', 'Alta Prioridade'),
+                                                    ('Baixa Prioridade', 'Baixa Prioridade')],
+                                           validators=[Required()])
 
 
 class SearchForm(Form):
