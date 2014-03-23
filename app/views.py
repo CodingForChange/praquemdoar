@@ -53,7 +53,7 @@ def internal_error(error):
                            form=form)
 
 
-@app.route('/<ong>/<slug>/contato')
+@app.route('/<ong>/<slug>/contato', methods=['GET', 'POST'])
 def contato_doacao(ong, slug):
     user = g.user
     form = LoginForm()
@@ -302,13 +302,6 @@ def contato():
     return render_template('contato.html', form=form, form_contato=form_contato, user=user)
 
 
-@app.route('/single')
-def single():
-    user = g.user
-    form = LoginForm()
-    return render_template('single.html', form=form, user=user)
-
-
 @app.route('/ajuda')
 def ajuda():
     user = g.user
@@ -316,7 +309,7 @@ def ajuda():
     return render_template('ajuda.html', form=form, user=user)
 
 
-@app.route('/politica-privacidade')
+@app.route('/politica')
 def politica():
     user = g.user
     form = LoginForm()
@@ -340,17 +333,3 @@ def after_request(response):
                                                               query.context)
         app.logger.warning(log_msg)
     return response
-
-
-@app.route('/404')
-def erro_404():
-    form = LoginForm()
-    return render_template('404.html', 
-                           form=form)
-    
-    
-@app.route('/500')
-def erro_500():
-    form = LoginForm()
-    return render_template('500.html', 
-                           form=form)
