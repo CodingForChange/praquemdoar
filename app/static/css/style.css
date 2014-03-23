@@ -582,6 +582,7 @@ footer{
 	width: 150px;
 	padding: 10px;
 	margin-top: 10px;
+	font-size: 14px;
 }
 
 .data-membro {
@@ -589,8 +590,7 @@ footer{
 }
 
 .botoes-contato {
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin: 15px 0px;
 }
 
 .botoes-contato .botao-site{
@@ -599,6 +599,7 @@ footer{
 	color: #FFFFFF;
 	border-radius: 0px;
 	padding: 5px 25px;
+	display: inline-table;
 }
 
 .botoes-contato .cadastrar-promocao{
