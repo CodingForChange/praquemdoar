@@ -6,26 +6,27 @@
 		<section class="row">
 			<section class="large-offset-2 large-8 columns">
 				<h2>Entre em contato</h2>
-				<form action="#" method="post" id="form-contato" class="forms form-login">
+				<form action="" method="post" id="form-contato" class="forms form-login">
+                    {{form.hidden_tag()}}
 					<span>
 						<label for="nome">Nome</label>
-						<input type="text" id="nome" name="nome" placeholder="Nome *" required />
+                        {{form.nome(required=True, placeholder='Nome*')}}
 						
 					</span>
 
 					<span>
 						<label for="email">Email</label>
-						<input type="email" id="email" name="email" placeholder="Email *" required />
-					</span>
+                        {{form.email(required=True, placeholder='Email*', type='email')}}
+                    </span>
 
 					<span>
 						<label for="assunto">Assunto</label>
-						<input type="text" id="assunto" name="assunto" placeholder="Assunto *" required />
+                        {{form.assunto(required=True, placeholder='Assunto*')}}
 					</span>
 
 					<span>
 						<label for="mensagem">Mensagem</label>
-						<input type="text" id="mensagem" name="mensagem" placeholder="Mensagem *" required />
+                        {{form.mensagem(required=True, placeholder='Mensagem*')}}
 					</span>
 					<input type="submit" id="env-contato-inst" class="form-button right-button" value="ENVIAR CONTATO" />															
 				</form>
