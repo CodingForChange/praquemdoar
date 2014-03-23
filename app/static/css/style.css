@@ -883,4 +883,40 @@ select {
 	.foot-left a:first-child:after{
 		content: "";
 	}
+	
+	.link-cad{
+		text-align: center;
+		margin: 20px 10px;
+	}
+	
+	.logo-instituicao img{
+		margin: 0 auto;
+		display: block;
+	}
+	
+	.editar-instituicao a{
+		width: 100%;
+	}
+	
+	.botoes-contato a{
+		width: 100%;
+		clear: both;
+		float: none;
+		display: table;
+		margin-bottom: 20px;
+		margin-left: 0px !important;
+	}
+	
+	.info-inst-soc{
+		margin-top: 0px;
+	}
+	
+	.int-banner{
+		padding-bottom: 20px;
+	}
+	
+	.box-membro-desde{
+		width: 100%;
+		text-align: center;
+	}
 }
