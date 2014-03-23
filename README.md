@@ -10,10 +10,14 @@ Tem como objetivo ajudar ONGs a arrecadarem doações, através de integração 
 
 Contribuidores
 --------------
-[@ale_borba](http://twitter.com/ale_borba) - Alê Borba
-[@diegocpires](http://twitter.com/diegocpires) - Diego Pires
-[@sisill](http://twitter.com/sisill) - Silvia Rodrigues
-[@occisioth](http://twitter.com/occisioth) - Thuany Serpa
+
+* [@ale_borba](http://twitter.com/ale_borba) - Alê Borba
+* [@diegocpires](http://twitter.com/diegocpires) - Diego Pires
+* [@sisill](http://twitter.com/sisill) - Silvia Rodrigues
+* [@occisioth](http://twitter.com/occisioth) - Thuany Serpa
+
+Licença
+--------
 
 Copyright 2014 Coding For Change
 
