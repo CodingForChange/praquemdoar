@@ -210,6 +210,7 @@ def doacao(ong, slug):
     return render_template('doacao.html',
                             form=form,
                             user=user,
+                             ong=ong,
                             doacao=doacao)
 
 
