@@ -25,24 +25,27 @@ def search_results(query):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    form = NewsletterForm()
+    form_news = NewsletterForm()
     form_busca = SearchForm()
-    login_form = LoginForm()
-    if form.validate_on_submit():
-        news = Newsletter(nome=form.nome.data,
-                          email=form.email.data)
+    form = LoginForm()
+    if form_news.validate_on_submit():
+        news = Newsletter(nome=form_news.nome.data,
+                          email=form_news.email.data)
         db.session.add(news)
         db.session.commit()
         return redirect(url_for('index'))
     if form_busca.validate_on_submit():
-        return redirect(url_for('search_results', query=form.search.data))
-    if login_form.validate_on_submit():
+        return redirect(url_for('search_results', query=form_busca.search.data))
+    if form.validate_on_submit():
         ong = Ong.query.filter_by(nickname=form.login.data,
                                   senha=md5(form.senha_login.data).hexadigest()
                                   ).first_or_404()
         login_user(ong)
         return redirect(request.args.get('next') or url_for('ong_dashboard'))
-    return render_template('index.html', form=form, form_busca=form_busca)
+    return render_template('index.html',
+                           form_news=form_news,
+                           form_busca=form_busca,
+                           form=form)
 
 
 @lm.user_loader
@@ -52,13 +55,15 @@ def load_user(id):
 
 @app.route('/<ong>', methods=['GET', 'POST'])
 def org_dashboard(ong):
+    form = LoginForm()
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
-    return render_template('instituicao.html', ong=ong)
+    return render_template('instituicao.html', ong=ong, form=form)
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
-    form = CadastroForm()
+    form = LoginForm()
+    form_cadastro = CadastroForm()
     if form.validate_on_submit():
         ong = Ong(nome=form.nome.data,
                   cnpj=form.cnpj.data,
@@ -75,7 +80,9 @@ def cadastro():
         db.session.add(ong)
         db.session.commit()
         return redirect(url_for('org_dashboard', ong=ong.nickname))
-    return render_template('cadastro.html', form=form)
+    return render_template('cadastro.html',
+                           form_cadastro=form_cadastro,
+                           form=form)
 
 
 @app.route('/doacao')
