@@ -103,34 +103,37 @@ $(document).ready(function(){
 	
 	
 });// JavaScript Document
-consultaCEP = function(cep) {	
+consultaCEP = function() {	
+
+		cep = $("#cep").val();
 
 		$.ajax({
 			url: 'http://api.postmon.com.br/v1/cep/'+cep,
 			type: 'GET',
 			dataType: 'json'
 		}).done(function(retorno) {
+			preencheEndereco(retorno);
+			
 
-			console.log(retorno);
-			// if(retorno.resultado == '1') {
-			// 	novoRetorno = {};
-			// 	novoRetorno.endereco = retorno.tipo_logradouro+" "+retorno.logradouro;
-			// 	novoRetorno.bairro = retorno.bairro;
-			// 	novoRetorno.estado = retorno.uf;
-			// 	novoRetorno.cidade = retorno.cidade;
-			// 	preencheEndereco(novoRetorno);
-			// } else {
-			// 	habilitaEnderecoManual();
-			// }
+		}).error(function (error) {
+
 
 		});
-		// console.log("http://api.postmon.com.br/v1/cep/*cep_a_consultar*");
+		
 	
+};
+
+preencheEndereco = function(endereco) {
+	$("#logradouro").val(endereco.logradouro);
+	$("#bairro").val(endereco.bairro);
+	$("#cidade").val(endereco.cidade);
+	$("#estado").val(endereco.estado);
+	$("#numero").focus();
 };
 
 formataTwitter = function()
 {
-	// $("iframe").contents().find(".timeline-header").hide();
+	
 	conteudo = '<div style="float: left; margin: 5px;margin-right: 10px;"><img src="static/img/twitter.png"></div><span style="font-size: 14px;"> '+
 	'Acompanhe pelo Twitter as últimas solicitações </span><br />'+
 	'<div style="font-size: 26px;font-weight: normal;padding-top: 5px;">@praquemdoar</div>';
