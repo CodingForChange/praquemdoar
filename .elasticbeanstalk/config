@@ -1,0 +1,5 @@
+[global]
+ApplicationName=praquemdoar
+DevToolsEndpoint=git.elasticbeanstalk.us-east-1.amazonaws.com
+EnvironmentName=praquemdoar-env
+Region=us-east-1
