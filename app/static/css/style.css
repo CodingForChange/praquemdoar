@@ -327,6 +327,127 @@ footer{
 	display: none;
 }
 
+.banner-instituicao {
+	/*padding: 10px 0px;*/
+}
+
+.logo-instituicao {
+	margin-top: 10px;
+	/*margin-left: 20px;*/
+}
+
+.info-inst-soc {
+	margin-top: 50px;
+}
+
+.texto-instituicao, .texto-instituicao h2 {
+	color: #777777;
+}
+
+.info-inst-soc i {
+	margin: 5px;
+}
+
+.box-membro-desde {
+	background-color: #FFFFFF;
+	width: 150px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.data-membro {
+	font-size: 22px;
+}
+
+.botoes-contato {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.botoes-contato .botao-site{
+	border: none;
+	background: #983270;
+	color: #FFFFFF;
+	border-radius: 0px;
+	padding: 5px 25px;
+}
+
+.botoes-contato .botao-contato{
+	border: none;
+	background: #006EB9;
+	color: #FFFFFF;
+	border-radius: 0px;
+	padding: 5px 25px;
+}
+
+.bl-cont {
+	display: none;
+}
+
+.bl-cont h2{
+	color:#525252;
+	font-size: 30px;
+	font-weight: normal;
+	padding-left: 15px;
+	margin-top: 30px;	
+}
+
+.sec-paginacao {
+	padding-top: 5px;
+	float: right;
+}
+
+.container-pedidos {
+	padding-top: 10px;
+}
+
+.tit-interacoes {
+	font-size: 32px;
+	float: left;
+	color: #727272;
+}
+
+.lista-pedidos {
+	border-top: 3px solid #E8E8E8;
+	clear: both;
+}
+
+.item-doacao {
+	padding: 10px;
+	border-bottom: 1px solid #E8E8E8;
+}
+
+.item-doacao .label {
+	
+	color: #A2A2A2;
+	font-weight: normal;
+	padding: 7px 15px;
+}
+
+.item-doacao .prioridade {
+	background-color: #C80600;
+	color: #FFFFFF;
+}
+
+.titulo-doacao {
+	color: #646464;
+	font-weight: bold;
+	margin: 10px 0px;
+}
+
+.texto-doacao {
+	color: #646464;
+	font-weight: normal;
+}
+
+.tags-doacao {
+	margin: 10px 0px;
+}
+
+.gray {
+	background-color: #DFDFDF;
+}
+
 @media only screen and (min-width: 768px) {
 	
 }

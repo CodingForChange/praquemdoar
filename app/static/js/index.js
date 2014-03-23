@@ -6,7 +6,7 @@ $(document).ready(function(){
 	setTimeout( formataTwitter,2000 );
 
 	
-	$("li.menu-login a").click(function(event){
+	$("li.menu-login a").on("click" , function(event){
 		event.preventDefault();
 		$( ".login" ).slideToggle( "slow", function() {
 			// Animation complete.
