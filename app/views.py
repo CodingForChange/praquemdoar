@@ -2,7 +2,7 @@ from flask import render_template, redirect, session, url_for, request, g
 from flask.ext.login import login_user, logout_user
 from flask.ext.login import current_user, login_required
 from app import app, db, lm
-from forms import NewsletterForm, SearchForm, CadastroForm
+from forms import NewsletterForm, SearchForm, CadastroForm, LoginForm
 from models import Newsletter, Ong
 from hashlib import md5
 from datetime import datetime
@@ -25,6 +25,7 @@ def search_results(query):
 def index():
     form = NewsletterForm()
     form_busca = SearchForm()
+    login_form = LoginForm()
     if form.validate_on_submit():
         news = Newsletter(nome=form.nome.data,
                           email=form.email.data)
@@ -33,6 +34,12 @@ def index():
         return redirect(url_for('index'))
     if form_busca.validate_on_submit():
         return redirect(url_for('search_results', query=form.search.data))
+    if login_form.validate_on_submit():
+        ong = Ong.query.filter_by(nickname=form.login.data,
+                                  senha=md5(form.senha.data).hexadigest()
+                                  ).first_or_404()
+        login_user(ong)
+        return redirect(request.args.get('next') or url_for('ong_dashboard'))
     return render_template('index.html', form=form, form_busca=form_busca)
 
 
@@ -41,7 +48,7 @@ def load_user(id):
     return Ong.query.get(int(id))
 
 
-@app.route('/<ong>')
+@app.route('/<ong>', methods=['GET', 'POST'])
 def org_dashboard(ong):
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
     return render_template('instituicao.html', ong=ong)
