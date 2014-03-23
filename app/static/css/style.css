@@ -521,6 +521,10 @@ footer{
 	color: #FFFFFF;
 }
 
+.tag-container .label a {
+	color: #FFFFFF;
+}
+
 .info-contador {
 	color: #FFFFFF;
 }
