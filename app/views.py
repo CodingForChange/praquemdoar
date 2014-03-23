@@ -118,3 +118,8 @@ def contato():
                       )
         return redirect(url_for('contato'))
     return render_template('contato.html', form=form)
+
+
+@app.route('/instituicao-admin')
+def instituicao_admin():
+    return render_template('instituicao-admin.html')
