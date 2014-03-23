@@ -199,6 +199,47 @@ div.tagsinput span.tag a{
 	color: #525252 !important;
 }
 
+.share{
+	float: right;
+	margin-top: 20px;
+}
+
+.share p{
+	float: left;
+	margin: 0px 0px 0px 10px;
+}
+
+.share-tit{
+	margin-top: 40px !important;
+}
+
+.share-tit i{
+	margin-right: 10px;
+}
+
+.share-icons a{
+	color: #FFFFFF;
+	font-size: 18px;
+	padding: 5px 12px;
+	display: table;
+}
+
+p.fac{
+	background: #262399;
+}
+
+p.fac a{
+	padding: 5px 5px 5px 28px;
+}
+
+p.twt{
+	background: #38a9ce;
+}
+
+p.goo{
+	background: #d31900;
+}
+
 .tag-small{
 	display: block;
 	margin-bottom: 20px;
