@@ -616,7 +616,7 @@ footer{
 	margin-left: 10px;
 }
 
-.logout:hover{
+.logout:hover, .botao-site:hover, .botoes-contato .cadastrar-promocao:hover{
 	color: #FFFFFF;
 	text-decoration: underline;
 }
