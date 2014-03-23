@@ -21,32 +21,31 @@
 					<li class="arrow"><a href="">&raquo;</a></li> 
 				</ul>
 			</section>
-	<section class="lista-pedidos">
-            {% for item in ong.doacoes %}
-			
-				
-				<section class="item-doacao">
-					<span class="label round gray">24 minutos atrás</span>
-                    {% if item.prioridade %}
-                    	<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> {{item.prioridade}}</span>
-                    {% endif %}
-					<section class="titulo-doacao">
-                    <a href="{{url_for('doacao', ong=item.ong.nickname, slug=item.slug)}}">{{item.nome}}</a>		    
-					</section>
-					<section class="texto-doacao">
-                        {{item.descricao}}
-                    </section>
-					<section class="tags-doacao">
-						Tags 
-						<span class="label round gray">{{item.tags}}</span>
-					</section>
-                    {% if user.is_authenticated() %}
-                    <section class="situacao-pedido">
-                        Status do Pedido <span classs="status-pedido">Ativo</span> <section class="editar-pedido"><a href="#">Editar</a></section> 
-                    </section>
-                    {% endif %}
-                </section>
-                {% endfor %}
+			<section class="lista-pedidos">
+	            {% for item in ong.doacoes %}
+					
+					<section class="item-doacao">
+						<span class="label round gray">24 minutos atrás</span>
+	                    {% if item.prioridade %}
+	                    	<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> {{item.prioridade}}</span>
+	                    {% endif %}
+						<section class="titulo-doacao">
+	                    <a href="{{url_for('doacao', ong=item.ong.nickname, slug=item.slug)}}">{{item.nome}}</a>		    
+						</section>
+						<section class="texto-doacao">
+	                        {{item.descricao}}
+	                    </section>
+						<section class="tags-doacao">
+							Tags 
+							<span class="label round gray">{{item.tags}}</span>
+						</section>
+	                    {% if user.is_authenticated() %}
+	                    <section class="situacao-pedido">
+	                        Status do Pedido <span classs="status-pedido">Ativo</span> <section class="editar-pedido"><a href="#">Editar</a></section> 
+	                    </section>
+	                    {% endif %}
+	                </section>
+	                {% endfor %}
 			</section>
 
 			<section class="sec-paginacao">
