@@ -16,7 +16,9 @@
                 {% if user.is_authenticated() %}
                 <a href="{{url_for('cadastro_doacao', ong=ong.nickname)}}" class="cadastrar-promocao"><i class="fa fa-plus"></i>Cadastrar Doação</a>
 		{% endif %}
-		<a href="#" class="logout"><i class="fa fa-times"></i>LOGOUT</a>
+        {% if user.is_authenticated() %}
+        <a href="{{url_for('logout')}}" class="logout"><i class="fa fa-times"></i>LOGOUT</a>
+        {% endif %}
 			</section>
 		</section>
 		<section class="large-3 columns">
