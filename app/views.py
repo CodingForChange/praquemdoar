@@ -43,7 +43,8 @@ def load_user(id):
 
 @app.route('/<ong>')
 def org_dashboard(ong):
-    return None
+    ong = Ong.query.filter_by(nickname=ong).first_or_404()
+    return render_template('instituicao.html', ong=ong)
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
@@ -67,10 +68,6 @@ def cadastro():
         return redirect(url_for('org_dashboard', ong=ong.nickname))
     return render_template('cadastro.html', form=form)
 
-
-@app.route('/instituicao')
-def instituicao():
-    return render_template('instituicao.html')
 
 @app.route('/instituicao-contato')
 def instituicao_contato():
