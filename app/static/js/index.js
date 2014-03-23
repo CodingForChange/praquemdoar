@@ -109,6 +109,8 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	$("#tags").tagsInput();
+	
 	
 });// JavaScript Document
 consultaCEP = function() {	

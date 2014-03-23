@@ -140,3 +140,19 @@ def instituicao_admin(ong):
     return render_template('instituicao-admin.html', 
                            form=form,
                            ong=ong)
+
+
+@app.route('/404')
+def erro_404():
+    form = LoginForm()
+    return render_template('404.html', 
+                           form=form)
+    
+    
+@app.route('/500')
+def erro_500():
+    form = LoginForm()
+    return render_template('500.html', 
+                           form=form)
+    
+    
