@@ -28,7 +28,7 @@
 					<span class="label round gray">24 minutos atrás</span>
                     <span class="label round prioridade"><i class="fa fa-angle-double-up"></i> {{item.prioridade}}</span>
 					<section class="titulo-doacao">
-                        {{item.nome}}
+                    <a href="{{url_for('doacao', ong=item.ong.nickname, slug=item.slug)}}">{{item.nome}}</a>
 					</section>
 					<section class="texto-doacao">
                         {{item.descricao}}
