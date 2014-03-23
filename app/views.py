@@ -152,6 +152,12 @@ def busca():
     return render_template('busca.html', form=form)
 
 
+@app.route('/single')
+def single():
+    form = LoginForm()
+    return render_template('single.html', form=form)
+
+
 @app.route('/<ong>/admin')
 def instituicao_admin(ong):
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
