@@ -7,7 +7,9 @@
             <h2>{{ong.nome}}</h2>
             {{ong.descricao}}
 			<section class="botoes-contato">
-                <a href='' class='botao-site'>VISITE O SITE</a>
+                {% if ong.website %}
+                <a href='{{ong.website}}' class='botao-site'>VISITE O SITE</a>
+                {% endif %}
 			</section>
 		</section>
 		<section class="large-3 columns">
