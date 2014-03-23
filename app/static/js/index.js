@@ -12,6 +12,12 @@ $(document).ready(function(){
 			// Animation complete.
 		});
 	});
+
+	$("#contato-inst").on("click", function () {
+		$("#bl-contato").slideToggle( "slow", function() {
+			// Animation complete.
+		});
+	});
 	
 });// JavaScript Document
 
@@ -29,4 +35,5 @@ formataTwitter = function()
 	$("iframe").contents().find(".timeline-footer").html(conteudo_footer);
 
 	$("iframe").contents().find(".load-more").hide();
+
 };
