@@ -105,6 +105,33 @@ label.error{
 	display: block;
 }
 
+.upload-file-container {
+	background: url("../img/img_input.png") no-repeat;
+	/*background-size: contain;*/
+	position: relative;
+	height: 112px;
+	width: 100%;
+}
+
+.form-login input[type="file"] {
+	filter: alpha(opacity=0);
+	opacity: 0;
+	position: absolute;
+}
+
+.upload-file-container input[type="text"] {
+	border: medium none;
+	box-shadow: none;
+	margin-left: 2px;
+	position: absolute;
+	top: 20px;
+	width: 70%;
+}
+
+.upload-file-container input[type="text"]:focus{
+	background: #FFFFFF;
+}
+
 .dados-login label.error{
 	color: #FFFFFF;
 }

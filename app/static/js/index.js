@@ -83,7 +83,7 @@ $(document).ready(function(){
 		   return false;
 		}
 	}, "Informe um CNPJ válido."); // Mensagem padrão
-	$("#cnpj").mask("99.999.999/9999-99");
+	$("#cnpj").mask("999.999.999/9999-99");
 	$("#form_login").validate({
 		rules: {
 		   cnpj: {required: true, cnpj: true},
@@ -100,6 +100,14 @@ $(document).ready(function(){
 		}
 	});
 	
+	$("#upload-file-container").on("click",function(event){
+		event.stopPropagation();
+		$("#logo").trigger('click');
+		$("#logo").change(function(){
+			$("#logo_hidden").val($(this).val());
+		});
+		return false;
+	});
 	
 	
 });// JavaScript Document
