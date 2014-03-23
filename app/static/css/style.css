@@ -473,8 +473,8 @@ footer{
 	background-color: #DFDFDF;
 }
 
-.form-contato .right-button {
-	padding: 30px 5px;
+.btn-enviar-contato {
+	padding: 35px;
 }
 
 @media only screen and (min-width: 768px) {
