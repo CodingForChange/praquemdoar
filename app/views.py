@@ -10,6 +10,11 @@ from datetime import datetime
 from emails import contact_email
 
 
+@app.before_request
+def before_request():
+    g.user = current_user
+
+
 @app.route('/search/<query>', methods=['GET', 'POST'])
 def search_results(query):
     form = SearchForm()
@@ -38,10 +43,11 @@ def index():
         return redirect(url_for('search_results', query=form_busca.search.data))
     if form.validate_on_submit():
         ong = Ong.query.filter_by(nickname=form.login.data,
-                                  senha=md5(form.senha_login.data).hexadigest()
+                                  senha=md5(form.senha_login.data).hexdigest()
                                   ).first_or_404()
         login_user(ong)
-        return redirect(request.args.get('next') or url_for('ong_dashboard'))
+        return redirect(request.args.get('next') or
+                        url_for('ong_dashboard', ong=ong.nickname))
     return render_template('index.html',
                            form_news=form_news,
                            form_busca=form_busca,
@@ -54,10 +60,22 @@ def load_user(id):
 
 
 @app.route('/<ong>', methods=['GET', 'POST'])
-def org_dashboard(ong):
+def ong_dashboard(ong):
+    user = g.user
     form = LoginForm()
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
-    return render_template('instituicao.html', ong=ong, form=form)
+    if form.validate_on_submit():
+        ong = Ong.query.filter_by(nickname=form.login.data,
+                                  senha=md5(form.senha_login.data).hexdigest()
+                                  ).first_or_404()
+        login_user(ong)
+        return redirect(request.args.get('next') or
+                        url_for('ong_dashboard',
+                            ong=ong.nickname))
+    return render_template('instituicao.html',
+                           ong=ong,
+                           form=form,
+                           user=user)
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
