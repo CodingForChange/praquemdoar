@@ -94,4 +94,5 @@ def ong_contato(ong):
                       form.mensagem.data,
                       ong.email
                       )
+        return redirect(url_for('ong_contato', ong=ong.nickname))
     return render_template('ong_contato.html', ong=ong, form=form)
