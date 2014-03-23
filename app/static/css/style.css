@@ -26,14 +26,14 @@ header{
 	left: 30px;
 }
 
-h1{
-	color: #000000;
+h1{	
 	background: #FFFFFF;
 	float: left;
 	font-size: 31px;
 	line-height: 22px;
 	padding: 6px 10px 8px 38px;
 	margin-top: 15px;
+	cursor: default;
 }
 
 h1 span{
@@ -200,6 +200,10 @@ input.busca{
 	font-size: 22px;
 	top: -58px;
 	color: #525252;
+}
+
+.doacoes{
+	border-top: 3px solid #e0e0e0;
 }
 
 footer{

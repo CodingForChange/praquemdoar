@@ -47,3 +47,8 @@ def cadastro():
 @app.route('/instituicao')
 def instituicao():
     return render_template('instituicao.html')
+    
+
+@app.route('/doacao')
+def doacao():
+    return render_template('doacao.html')
