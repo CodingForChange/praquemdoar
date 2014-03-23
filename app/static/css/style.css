@@ -202,9 +202,38 @@ input.busca{
 	color: #525252;
 }
 
-.doacoes{
+.doa-descricao{
 	border-top: 3px solid #e0e0e0;
 	padding-top: 20px;
+	padding-bottom: 0px;
+	border-bottom: 1px dotted #2b2b2b;
+	margin-bottom: 30px;
+}
+
+.doa-descricao h2{
+	font-size: 18px;
+	font-weight: normal;
+	margin-top: 15px;
+	color: #2b2b2b;
+}
+
+.doa-descricao p{
+	font-size: 18px;
+	color: #2b2b2b;
+	line-height: 20px;
+}
+
+.doa-descricao a{
+	color: #0088b0;
+	font-size: 18px;
+	margin-left: 10px;
+	font-style: italic;
+}
+
+.label-tags{
+	font-weight: 200;
+	font-size: 18px;
+	margin-right: 10px;
 }
 
 footer{
