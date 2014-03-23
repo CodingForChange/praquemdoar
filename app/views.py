@@ -38,7 +38,7 @@ def index():
         return redirect(url_for('search_results', query=form.search.data))
     if login_form.validate_on_submit():
         ong = Ong.query.filter_by(nickname=form.login.data,
-                                  senha=md5(form.senha.data).hexadigest()
+                                  senha=md5(form.senha_login.data).hexadigest()
                                   ).first_or_404()
         login_user(ong)
         return redirect(request.args.get('next') or url_for('ong_dashboard'))
@@ -82,6 +82,7 @@ def cadastro():
 def doacao():
     return render_template('doacao.html')
 
+
 @app.route('/instituicao-contato')
 def instituicao_contato():
     return render_template('instituicao-contato.html')
@@ -90,6 +91,7 @@ def instituicao_contato():
 @app.route('/cadastro-doacao')
 def cadastro_doacao():
     return render_template('cadastro-doacao.html')
+
 
 @app.route('/<ong>/contato', methods=['GET', 'POST'])
 def ong_contato(ong):
