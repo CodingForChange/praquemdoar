@@ -281,6 +281,7 @@ def ong_contato(ong):
 
 @app.route('/contato', methods=['GET', 'POST'])
 def contato():
+    user = g.user
     form = LoginForm()
     form_contato = ContatoForm()
     if form_contato.validate_on_submit():
@@ -291,7 +292,7 @@ def contato():
                       'contato@aleborba.com.br'
                       )
         return redirect(url_for('contato'))
-    return render_template('contato.html', form=form, form_contato=form_contato)
+    return render_template('contato.html', form=form, form_contato=form_contato, user=user)
 
 
 @app.route('/single')

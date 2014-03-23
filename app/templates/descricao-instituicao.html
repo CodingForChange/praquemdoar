@@ -3,7 +3,7 @@
 		<section class="large-2 columns logo-instituicao">
 			<img src='/static/img/no_photo.png'/>
             {% if user.is_authenticated() %}
-			<section class="editar-instituicao"><a href="">EDITAR</a></section>
+			<section class="editar-instituicao"><a href="#"><i class="fa fa-pencil"></i>EDITAR</a></section>
             {% endif %}
 		</section>
 		<section class="large-7 columns texto-instituicao">
@@ -11,11 +11,12 @@
             {{ong.descricao}}
 			<section class="botoes-contato">
                 {% if ong.website %}
-                <a href='{{ong.website}}' class='botao-site'>VISITE O SITE</a>
+                <a href='{{ong.website}}' class='botao-site'><i class="fa fa-globe"></i>VISITE O SITE</a>
                 {% endif %}
                 {% if user.is_authenticated() %}
-                <a href="{{url_for('cadastro_doacao', ong=ong.nickname)}}" class="cadastrar-promocao">Cadastrar Doação</a>
-                {% endif %}
+                <a href="{{url_for('cadastro_doacao', ong=ong.nickname)}}" class="cadastrar-promocao"><i class="fa fa-plus"></i>Cadastrar Doação</a>
+		{% endif %}
+		<a href="#" class="logout"><i class="fa fa-times"></i>LOGOUT</a>
 			</section>
 		</section>
 		<section class="large-3 columns">
