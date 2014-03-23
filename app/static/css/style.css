@@ -827,5 +827,60 @@ select {
 }
 
 @media only screen and (max-width: 767px) {
-
+	.menus{
+		background: #FFFFFF;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+	}
+	
+	.menus li:first-child a{
+		color: #000000;
+	}
+	
+	.banner-center{
+		background: none;
+		padding: 10px 0px 10px 10px;
+	}
+	
+	input.busca{
+		width: auto;
+	}
+	
+	.search i{
+		right: 27px;
+	}
+	
+	.box-contador, .box-categoria{
+		margin: 20px 0px 10px 0px;
+	}
+	
+	.box-categoria{
+		padding: 10px 10px;
+	}
+	
+	.news{
+		padding-bottom: 20px;
+	}
+	
+	footer a{
+		display: table;
+		clear: both;
+		text-align: center;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	
+	footer img{
+		display: none;
+	}
+	
+	footer p{
+		display: table;
+		width: 100%;
+		text-align: center;
+	}
+	
+	.foot-left a:first-child:after{
+		content: "";
+	}
 }
