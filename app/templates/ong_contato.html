@@ -7,26 +7,26 @@
 			<section class="large-offset-2 large-8 columns">
 				<h2>Entre em contato</h2>
 				<form action="" method="post" id="form-contato" class="forms form-login">
-                    {{form.hidden_tag()}}
+                    {{form_contato.hidden_tag()}}
 					<span>
 						<label for="nome">Nome</label>
-                        {{form.nome(required=True, placeholder='Nome*')}}
+                        {{form_contato.nome(required=True, placeholder='Nome*')}}
 						
 					</span>
 
 					<span>
 						<label for="email">Email</label>
-                        {{form.email(required=True, placeholder='Email*', type='email')}}
+                        {{form_contato.email(required=True, placeholder='Email*', type='email')}}
                     </span>
 
 					<span>
 						<label for="assunto">Assunto</label>
-                        {{form.assunto(required=True, placeholder='Assunto*')}}
+                        {{form_contato.assunto(required=True, placeholder='Assunto*')}}
 					</span>
 
 					<span>
 						<label for="mensagem">Mensagem</label>
-                        {{form.mensagem(required=True, placeholder='Mensagem*')}}
+                        {{form_contato.mensagem(required=True, placeholder='Mensagem*')}}
 					</span>
 					<input type="submit" id="env-contato-inst" class="form-button right-button" value="ENVIAR CONTATO" />															
 				</form>

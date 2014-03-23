@@ -541,6 +541,14 @@ footer{
 	padding: 5px 25px;
 }
 
+.botoes-contato .cadastrar-promocao{
+	border: none;
+	background: #0088b0;
+	color: #FFFFFF;
+	border-radius: 0px;
+	padding: 5px 25px;
+}
+
 .botoes-contato .botao-contato{
 	border: none;
 	background: #006EB9;
@@ -673,6 +681,42 @@ footer{
 .editar-pedido a {
 	border-bottom: 1px solid #404040;
 	color: #404040;
+}
+
+.box-query-busca {
+	background-color: #CCCCCC;
+	padding: 25px;
+	text-align: center;
+	font-size: 26px;
+	color: #727272;
+	margin-bottom: 20px;
+}
+
+.termo-busca {
+	color: #2B2B2B;
+}
+
+.editar-instituicao {
+	text-align: center;
+}
+
+.editar-instituicao a {
+	border-bottom: 1px solid #2795B6;
+}
+
+.header-single {
+	background-color: #CCCCCC;
+}
+
+.titulo-single {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 26px;
+}
+
+.corpo-single {
+	margin-top: 60px;
+
 }
 
 select {

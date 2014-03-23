@@ -40,6 +40,11 @@
 						<span class="label round gray">ROUPAS</span> 
 						<span class="label round gray">COBERTORES</span> 
 					</section>
+                    {% if user.is_authenticated() %}
+                    <section class="situacao-pedido">
+                        Status do Pedido <span classs="status-pedido">Ativo</span> <section class="editar-pedido"><a href="#">Editar</a></section> 
+                    </section>
+                    {% endif %}
 				</section>
 
 				<section class="item-doacao">

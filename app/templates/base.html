@@ -48,7 +48,11 @@
 				<nav role="navigation">
 					<ul class="menu">
 						<li><a href="#"><i class="fa fa-question-circle"></i>AJUDA</a></li>
+                        {% if user.is_authenticated() %}
+                        <li class="menu-login"><i class="fa fa-user"></i>{{user.nome}}</li>
+                        {% else %}
 						<li class="menu-login"><a href="#"><i class="fa fa-user"></i>LOGIN</a></li>
+                        {% endif %}
 					</ul>
 				</nav>
 			</section>
