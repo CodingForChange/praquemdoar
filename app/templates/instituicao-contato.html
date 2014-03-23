@@ -1,0 +1,37 @@
+{%extends "base.html" %}
+{%block content%}
+	{% include 'descricao-instituicao.html' %}
+
+	<section class="bl-cont inst" id="bl-contato">
+		<section class="row">
+			<section class="large-offset-2 large-8 columns">
+				<h2>Entre em contato</h2>
+				<form action="#" method="post" id="form-contato" class="forms form-login">
+					<span>
+						<label for="nome">Nome</label>
+						<input type="text" id="nome" name="nome" placeholder="Nome *" required />
+						
+					</span>
+
+					<span>
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" placeholder="Email *" required />
+					</span>
+
+					<span>
+						<label for="assunto">Assunto</label>
+						<input type="text" id="assunto" name="assunto" placeholder="Assunto *" required />
+					</span>
+
+					<span>
+						<label for="mensagem">Mensagem</label>
+						<input type="text" id="mensagem" name="mensagem" placeholder="Mensagem *" required />
+					</span>
+					<input type="submit" id="env-contato-inst" class="form-button right-button" value="ENVIAR CONTATO" />															
+				</form>
+			</section>
+		</section>
+	</section>
+
+	<script type="text/javascript" src="/static/js/instituicao.js"></script>
+{%endblock%}

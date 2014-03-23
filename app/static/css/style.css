@@ -376,15 +376,11 @@ footer{
 	padding: 5px 25px;
 }
 
-.bl-cont {
-	display: none;
-}
-
 .bl-cont h2{
 	color:#525252;
 	font-size: 30px;
 	font-weight: normal;
-	padding-left: 15px;
+	/*padding-left: 15px;*/
 	margin-top: 30px;	
 }
 
@@ -410,7 +406,7 @@ footer{
 
 .item-doacao {
 	padding: 10px;
-	border-bottom: 1px solid #E8E8E8;
+	border-bottom: 1px dotted #E8E8E8;
 }
 
 .label {
@@ -419,7 +415,7 @@ footer{
 	padding: 7px 15px;
 }
 
-.item-doacao .prioridade {
+.prioridade {
 	background-color: #C80600;
 	color: #FFFFFF;
 }
@@ -441,6 +437,10 @@ footer{
 
 .gray {
 	background-color: #DFDFDF;
+}
+
+.form-contato #env-contato-inst {
+	padding: 20px 5px;
 }
 
 @media only screen and (min-width: 768px) {
