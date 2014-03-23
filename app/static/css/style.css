@@ -105,6 +105,33 @@ label.error{
 	display: block;
 }
 
+.upload-file-container {
+	background: url("../img/img_input.png") no-repeat;
+	/*background-size: contain;*/
+	position: relative;
+	height: 112px;
+	width: 100%;
+}
+
+.form-login input[type="file"] {
+	filter: alpha(opacity=0);
+	opacity: 0;
+	position: absolute;
+}
+
+.upload-file-container input[type="text"] {
+	border: medium none;
+	box-shadow: none;
+	margin-left: 2px;
+	position: absolute;
+	top: 20px;
+	width: 70%;
+}
+
+.upload-file-container input[type="text"]:focus{
+	background: #FFFFFF;
+}
+
 .dados-login label.error{
 	color: #FFFFFF;
 }
@@ -567,6 +594,19 @@ footer{
 .editar-pedido a {
 	border-bottom: 1px solid #404040;
 	color: #404040;
+}
+
+.box-query-busca {
+	background-color: #CCCCCC;
+	padding: 25px;
+	text-align: center;
+	font-size: 26px;
+	color: #727272;
+	margin-bottom: 20px;
+}
+
+.termo-busca {
+	color: #2B2B2B;
 }
 
 select {

@@ -146,6 +146,12 @@ def contato():
     return render_template('contato.html', form=form)
 
 
+@app.route('/busca')
+def busca():
+    form = LoginForm()
+    return render_template('busca.html', form=form)
+
+
 @app.route('/<ong>/admin')
 def instituicao_admin(ong):
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
