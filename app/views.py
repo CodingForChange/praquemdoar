@@ -96,3 +96,17 @@ def ong_contato(ong):
                       )
         return redirect(url_for('ong_contato', ong=ong.nickname))
     return render_template('ong_contato.html', ong=ong, form=form)
+
+
+@app.route('/contato', methods=['GET', 'POST'])
+def contato():
+    form = ContatoForm()
+    if form.validate_on_submit():
+        contact_email('[Pra Quem Doar Contato] ' + form.assunto.data,
+                      form.nome.data,
+                      form.email.data,
+                      form.mensagem.data,
+                      'contato@aleborba.com.br'
+                      )
+        return redirect(url_for('contato'))
+    return render_template('contato.html', form=form)
