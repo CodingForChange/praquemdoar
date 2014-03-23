@@ -560,8 +560,13 @@ footer{
 	margin-top: 50px;
 }
 
-.texto-instituicao, .texto-instituicao h2 {
+.texto-instituicao{
 	color: #777777;
+}
+
+.texto-instituicao h2 {
+	color: #777777;
+	font-weight: 200;
 }
 
 .info-inst-soc i {
