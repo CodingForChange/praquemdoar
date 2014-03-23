@@ -177,3 +177,24 @@ def contato():
                       )
         return redirect(url_for('contato'))
     return render_template('contato.html', form=form, form_contato=form_contato)
+
+
+@app.route('/busca')
+def busca():
+    form = LoginForm()
+    return render_template('busca.html', form=form)
+
+
+@app.route('/single')
+def single():
+    form = LoginForm()
+    return render_template('single.html', form=form)
+
+
+@app.route('/<ong>/admin')
+def instituicao_admin(ong):
+    ong = Ong.query.filter_by(nickname=ong).first_or_404()
+    form = LoginForm()
+    return render_template('instituicao-admin.html', 
+                           form=form,
+                           ong=ong)

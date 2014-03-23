@@ -625,6 +625,21 @@ footer{
 	border-bottom: 1px solid #2795B6;
 }
 
+.header-single {
+	background-color: #CCCCCC;
+}
+
+.titulo-single {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 26px;
+}
+
+.corpo-single {
+	margin-top: 60px;
+
+}
+
 select {
 	border: 1px solid #CCC;
 	padding: 0.44444rem;
