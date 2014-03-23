@@ -1,0 +1,114 @@
+{%extends "base.html" %}
+{%block content%}
+	
+	{% include 'descricao-instituicao.html' %}
+	<section class="bl-cont inst" id="bl-cadastro-doacao">
+		<section class="row">
+			<section class="large-offset-2 large-8 columns">
+				<h2>Cadastrar Doação</h2>
+				<form action="#" method="post" id="form-cadastro-doacao custom" class="forms form-login">
+					<span>
+						<label for="categoria">Categoria</label>
+						<select id="categoria" name="categoria">
+							<option value="">Categoria *</option>
+						</select>
+						
+					</span>
+
+					<span>
+						<label for="nome">Nome</label>
+						<input type="text" id="nome" name="nome" placeholder="Nome *" />
+						
+					</span>
+
+					<span>
+						<label for="nome">Descrição</label>
+						<input type="text" id="descricao" name="descricao" placeholder="Descrição" />
+						
+					</span>
+
+					<span>
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" placeholder="Email de contato" />
+					</span>
+
+					<span>
+						<label for="prioridade">Prioridade</label>
+						<select id="prioridade" name="prioridade">
+							<option value="">Prioridade *</option>
+						</select>
+						
+					</span>
+
+					<span class="checkbox">
+						<label for="retira"> <input type="checkbox" id="retira" name="retira" />  Retira doação no local</label>
+						
+						
+					</span>
+
+					<section class="divisor"></section>
+
+					<span>
+						<label for="cep">CEP</label>
+						<input type="text" id="cep" name="cep" placeholder="CEP *" required />
+					</span>
+
+					<span>
+						<label for="logradouro">Logradouro</label>
+						<input type="text" id="logradouro" name="logradouro" placeholder="Logradouro *" required />
+					</span>
+
+					<section class="row">
+						<section class="large-6 columns">
+							<span>
+								<label for="numero">Número</label>
+								<input type="text" id="numero" name="numero" placeholder="Nr *" required />
+							</span>													
+						</section>
+						<section class="large-6 columns left">
+							<span>
+								<label for="complemento">Complemento</label>
+								<input type="text" id="complemento" name="complemento" placeholder="Complemento" />
+							</span>													
+						</section>
+
+					</section>
+
+					<span>
+						<label for="bairro">Bairro</label>
+						<input type="text" id="bairro" name="bairro" placeholder="Bairro *" required />
+					</span>
+
+					<section class="row">
+						<section class="large-6 columns">
+							<span>
+								<label for="cidade">Cidade</label>
+								<input type="text" id="cidade" name="cidade" placeholder="Cidade *" required />
+							</span>													
+						</section>
+						<section class="large-6 columns left">
+							<span>
+								<label for="estado">Estado</label>
+								<input type="text" id="estado" name="estado" placeholder="Estado *" required />
+							</span>													
+						</section>
+
+					</section>
+
+					<section class="divisor"></section>
+
+					
+
+					<span class="checkbox">
+						<label for="publicar"> <input type="checkbox" id="publicar" name="publicar" />  Publicar doação</label>
+						
+						
+					</span>			
+					<input type="submit" id="env-cad-doa" class="form-button right-button" value="SALVAR" />												
+				</form>
+			</section>
+		</section>
+	</section>
+
+	<script type="text/javascript" src="/static/js/instituicao.js"></script>
+{%endblock%}

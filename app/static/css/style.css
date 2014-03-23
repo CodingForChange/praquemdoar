@@ -279,7 +279,7 @@ input.busca{
 	font-style: italic;
 }
 
-.doa-end a{
+.doa-end a, #env-cad-doa{
 	color: #FFFFFF;
 	font-size: 24px;
 	font-weight: 200;
@@ -554,6 +554,53 @@ footer{
 
 .btn-enviar-contato {
 	padding: 35px;
+}
+
+.divisor {
+	border-bottom: 1px dotted #2b2b2b;
+	margin-bottom: 20px;
+}
+
+.checkbox label {
+	display: inline-block;
+	font-size: 22px;
+	/*margin-top: 5px;*/
+}
+
+.checkbox [type="checkbox"] {
+	float: left;
+	/*vertical-align: baseline;*/
+	height: auto;
+	/*margin: 3px solid gray;*/
+	width: 20px;
+	margin-top: 4px;
+}
+
+.situacao-pedido {
+	padding: 15px;
+	background-color: #DFDFDF;
+	color: #404040;
+}
+
+.status-pedido {
+	padding-left: 20px;
+	color: #A6A6A6;
+}
+
+.editar-pedido {
+	float: right;
+}
+
+.editar-pedido a {
+	border-bottom: 1px solid #404040;
+	color: #404040;
+}
+
+select {
+	border: 1px solid #CCC;
+	padding: 0.44444rem;
+	font-size: 22px;
+	border-radius: 5px;
 }
 
 @media only screen and (min-width: 768px) {

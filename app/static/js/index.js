@@ -18,6 +18,13 @@ $(document).ready(function(){
 			// Animation complete.
 		});
 	});
+
+
+
+
+	$("#cep").mask("99999-999",{placeholder:"_",completed: consultaCEP});
+
+	
 	
 	jQuery.validator.addMethod("cnpj", function(cnpj, element) {
 		cnpj = jQuery.trim(cnpj);// retira espaços em branco
@@ -104,10 +111,37 @@ $(document).ready(function(){
 	
 	
 });// JavaScript Document
+consultaCEP = function() {	
+
+		cep = $("#cep").val();
+
+		$.ajax({
+			url: 'http://api.postmon.com.br/v1/cep/'+cep,
+			type: 'GET',
+			dataType: 'json'
+		}).done(function(retorno) {
+			preencheEndereco(retorno);
+			
+
+		}).error(function (error) {
+
+
+		});
+		
+	
+};
+
+preencheEndereco = function(endereco) {
+	$("#logradouro").val(endereco.logradouro);
+	$("#bairro").val(endereco.bairro);
+	$("#cidade").val(endereco.cidade);
+	$("#estado").val(endereco.estado);
+	$("#numero").focus();
+};
 
 formataTwitter = function()
 {
-	// $("iframe").contents().find(".timeline-header").hide();
+	
 	conteudo = '<div style="float: left; margin: 5px;margin-right: 10px;"><img src="static/img/twitter.png"></div><span style="font-size: 14px;"> '+
 	'Acompanhe pelo Twitter as últimas solicitações </span><br />'+
 	'<div style="font-size: 26px;font-weight: normal;padding-top: 5px;">@praquemdoar</div>';
