@@ -130,7 +130,8 @@ def contato():
 
 @app.route('/busca')
 def busca():
-    return render_template('busca.html')
+    form = LoginForm()
+    return render_template('busca.html', form=form)
 
 
 @app.route('/<ong>/admin')

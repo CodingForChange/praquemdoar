@@ -569,6 +569,19 @@ footer{
 	color: #404040;
 }
 
+.box-query-busca {
+	background-color: #CCCCCC;
+	padding: 25px;
+	text-align: center;
+	font-size: 26px;
+	color: #727272;
+	margin-bottom: 20px;
+}
+
+.termo-busca {
+	color: #2B2B2B;
+}
+
 select {
 	border: 1px solid #CCC;
 	padding: 0.44444rem;
