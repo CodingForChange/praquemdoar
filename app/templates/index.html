@@ -68,14 +68,14 @@
 		<section class="row">
 			<h2>Receba informações das instituições cadastradas</h2>
 			<form action="" method="post" id="form-login" class="forms form-login">
-                {{form.hidden_tag()}}
+                {{form_news.hidden_tag()}}
 				<section class="large-5 columns">
 					<label for="nome">nome</label>
-                    {{form.nome(required=True, placeholder='nome')}}
+                    {{form_news.nome(required=True, placeholder='nome')}}
 				</section>
 				<section class="large-5 columns">
 					<label for="email">email</label>
-                    {{form.email(required=True, type='email', placeholder='email')}}
+                    {{form_news.email(required=True, type='email', placeholder='email')}}
 				</section>
 				<section class="large-2 columns">
 					<input type="submit" id="env-news" class="form-button" value="CADASTRAR" />

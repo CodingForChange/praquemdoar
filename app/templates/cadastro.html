@@ -2,18 +2,18 @@
 {%block content%}
 	<section class="bl-cad inst">					
 		<form action="#" method="post" id="form_login" class="forms form-login">
-            {{form.hidden_tag()}}
+            {{form_cadastro.hidden_tag()}}
 			<section class="row">
 				<section class="large-offset-2 large-8 columns">
 					<h2>Cadastrar Instituição</h2>
 					<span>
 						<label for="cnpj">cnpj</label>
-                        {{form.cnpj(required=True, placeholder='CNPJ*')}}
+                        {{form_cadastro.cnpj(required=True, placeholder='CNPJ*')}}
 						<!--<i class="fa fa-search"></i>-->
 					</span>
 					<span>
 						<label for="nome">razao social</label>
-                        {{form.nome(required=True, placeholder='Razão Social*')}}
+                        {{form_cadastro.nome(required=True, placeholder='Razão Social*')}}
 						<!--<i class="fa fa-search"></i>-->
 					</span>					
 				</section>
@@ -23,13 +23,13 @@
 					<section class="large-offset-2 large-8 columns">
 						<span>
 							<label for="nickname">login</label>
-                            {{form.nickname(required=True, placeholder='Login*')}}
+                            {{form_cadastro.nickname(required=True, placeholder='Login*')}}
 						</span>														
 					</section>
 					<section class="large-offset-2 large-4 columns">
 						<span>
 							<label for="senha">senha</label>
-                            {{form.senha(required=True, type='password', placeholder='Senha*')}}
+                            {{form_cadastro.senha(required=True, type='password', placeholder='Senha*')}}
 						</span>														
 					</section>
 					<section class="large-4 columns left">
@@ -44,7 +44,7 @@
 				<section class="large-offset-2 large-8 columns">					
 					<span>
 						<label for="email">email contato</label>
-                        {{form.email(required=True, type='email', placeholder='Email de contato*')}}
+                        {{form_cadastro.email(required=True, type='email', placeholder='Email de contato*')}}
 						<i class="fa fa-envelope-o"></i>
 					</span>
 					<span>
@@ -53,27 +53,27 @@
 					</span>
 					<span>
 						<label for="descricao">Descrição</label>
-                        {{form.descricao(placeholder='Descrição')}}
+                        {{form_cadastro.descricao(placeholder='Descrição')}}
 						<small>200 caracteres</small>
 					</span>
 					<span>
 						<label for="website">Site da Instituição</label>
-                        {{form.website(placeholder='Site da Instituição')}}
+                        {{form_cadastro.website(placeholder='Site da Instituição')}}
 						<i class="fa fa-globe"></i>
 					</span>
 					<span>
 						<label for="twitter">Twitter</label>
-                        {{form.twitter(placeholder='Twitter')}}
+                        {{form_cadastro.twitter(placeholder='Twitter')}}
 						<i class="fa fa-twitter"></i>
 					</span>
 					<span>
 						<label for="facebook">Fan Page</label>
-                        {{form.facebook(placeholder='Fan Page')}}
+                        {{form_cadastro.facebook(placeholder='Fan Page')}}
 						<i class="fa fa-facebook-square"></i>
 					</span>
 					<span>
 						<label for="googleplus">Google Plus</label>
-                        {{form.googleplus(placeholder='Google Plus')}}
+                        {{form_cadastro.googleplus(placeholder='Google Plus')}}
 						<i class="fa fa-google-plus"></i>
 					</span>
 					<input type="submit" id="env-inst" class="form-button right-button" value="CADASTRAR" />
