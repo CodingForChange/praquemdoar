@@ -41,3 +41,8 @@ class DoacaoForm(Form):
 
 class SearchForm(Form):
     search = TextField('search', validators=[Required()])
+
+
+class LoginForm(Form):
+    login = TextField('login', validators=[Required()])
+    senha = TextField('senha', validators=[Required()])
