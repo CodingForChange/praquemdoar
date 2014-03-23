@@ -95,7 +95,7 @@ def search_results(query):
     result_doacao = Doacao.query.filter(Doacao.tags.like('%' + query + '%'))
     result_ong = Ong.query.filter(Ong.nome.like('%' + query + '%'))
     if form_busca.validate_on_submit():
-        return redirect(url_for('search_results', query=form_search.search.data))
+        return redirect(url_for('search_results', query=form_busca.search.data))
     return render_template('search.html',
                            query=query,
                            result_doacao=result_doacao,
