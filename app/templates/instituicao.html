@@ -21,85 +21,29 @@
 					<li class="arrow"><a href="">&raquo;</a></li> 
 				</ul>
 			</section>
-
+            {% for item in ong.doacoes %}
 			<section class="lista-pedidos">
 				
 				<section class="item-doacao">
 					<span class="label round gray">24 minutos atrás</span>
-					<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> Alta Prioridade</span>
+                    <span class="label round prioridade"><i class="fa fa-angle-double-up"></i> {{item.prioridade}}</span>
 					<section class="titulo-doacao">
-						CAMPANHA DO AGASALHO
+                        {{item.nome}}
 					</section>
 					<section class="texto-doacao">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
-						<br /><br />
-						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
-					</section>
+                        {{item.descricao}}
+                    </section>
 					<section class="tags-doacao">
 						Tags 
-						<span class="label round gray">ROUPAS</span> 
-						<span class="label round gray">COBERTORES</span> 
+						<span class="label round gray">{{item.tags}}</span>
 					</section>
                     {% if user.is_authenticated() %}
                     <section class="situacao-pedido">
                         Status do Pedido <span classs="status-pedido">Ativo</span> <section class="editar-pedido"><a href="#">Editar</a></section> 
                     </section>
                     {% endif %}
-				</section>
-
-				<section class="item-doacao">
-					<span class="label round gray">24 minutos atrás</span>
-					<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> Alta Prioridade</span>
-					<section class="titulo-doacao">
-						CAMPANHA DO AGASALHO
-					</section>
-					<section class="texto-doacao">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
-						<br /><br />
-						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
-					</section>
-					<section class="tags-doacao">
-						Tags 
-						<span class="label round gray">ROUPAS</span> 
-						<span class="label round gray">COBERTORES</span> 
-					</section>
-				</section>
-
-				<section class="item-doacao">
-					<span class="label round gray">24 minutos atrás</span>
-					<section class="titulo-doacao">
-						CAMPANHA DO AGASALHO
-					</section>
-					<section class="texto-doacao">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
-						<br /><br />
-						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
-					</section>
-					<section class="tags-doacao">
-						Tags 
-						<span class="label round gray">ROUPAS</span> 
-						<span class="label round gray">COBERTORES</span> 
-					</section>
-				</section>
-
-				<section class="item-doacao">
-					<span class="label round gray">24 minutos atrás</span>
-					<section class="titulo-doacao">
-						CAMPANHA DO AGASALHO
-					</section>
-					<section class="texto-doacao">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
-						<br /><br />
-						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
-					</section>
-					<section class="tags-doacao">
-						Tags 
-						<span class="label round gray">ROUPAS</span> 
-						<span class="label round gray">COBERTORES</span> 
-					</section>
-				</section>
-
-
+                </section>
+                {% endfor %}
 			</section>
 
 			<section class="sec-paginacao">
