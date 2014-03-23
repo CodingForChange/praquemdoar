@@ -25,7 +25,7 @@ def send_email(subject, sender_email, sender_name, recipients,
     send_async_email(msg)
 
 
-def contact_email(subject, name, email, message, contact_email, event_url):
+def contact_email(subject, name, email, message, contact_email):
     send_email(subject=subject,
                sender_name=name,
                sender_email=email,
@@ -34,12 +34,10 @@ def contact_email(subject, name, email, message, contact_email, event_url):
                                          name=name,
                                          email=email,
                                          subject=subject,
-                                         message=message,
-                                         url=event_url),
+                                         message=message),
                html_body=render_template('contact_email.html',
                                          name=name,
                                          email=email,
                                          subject=subject,
-                                         message=message,
-                                         url=event_url)
+                                         message=message)
                )

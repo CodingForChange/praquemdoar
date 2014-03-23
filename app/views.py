@@ -3,9 +3,11 @@ from flask.ext.login import login_user, logout_user
 from flask.ext.login import current_user, login_required
 from app import app, db, lm
 from forms import NewsletterForm, SearchForm, CadastroForm, LoginForm
+from forms import ContatoForm
 from models import Newsletter, Ong
 from hashlib import md5
 from datetime import datetime
+from emails import contact_email
 
 
 @app.route('/search/<query>', methods=['GET', 'POST'])
@@ -81,7 +83,15 @@ def doacao():
     return render_template('doacao.html')
 
 
-@app.route('/<ong>/contato')
+@app.route('/<ong>/contato', methods=['GET', 'POST'])
 def ong_contato(ong):
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
-    return render_template('ong_contato.html', ong=ong)
+    form = ContatoForm()
+    if form.validate_on_submit():
+        contact_email('[Pra Quem Doar Contato] ' + form.assunto.data,
+                      form.nome.data,
+                      form.email.data,
+                      form.mensagem.data,
+                      ong.email
+                      )
+    return render_template('ong_contato.html', ong=ong, form=form)
