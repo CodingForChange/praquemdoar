@@ -125,3 +125,8 @@ def contato():
 @app.route('/instituicao-admin')
 def instituicao_admin():
     return render_template('instituicao-admin.html')
+
+
+@app.route('/busca')
+def busca():
+    return render_template('busca.html')
