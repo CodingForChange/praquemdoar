@@ -771,9 +771,17 @@ footer{
 }
 
 .editar-instituicao a {
-	border-bottom: 1px solid #2795B6;
+	border: none;
+	background: #0088b0;
+	color: #FFFFFF;
+	border-radius: 0px;
+	padding: 5px 25px;
 	margin: 10px 0px;
 	display: inline-table;
+}
+
+.editar-instituicao a i{
+	margin-right: 10px;
 }
 
 .header-single {
