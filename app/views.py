@@ -90,14 +90,13 @@ def doacao():
     return render_template('doacao.html')
 
 
-@app.route('/instituicao-contato')
-def instituicao_contato():
-    return render_template('instituicao-contato.html')
-
-
-@app.route('/cadastro-doacao')
-def cadastro_doacao():
-    return render_template('cadastro-doacao.html')
+@app.route('/<ong>/doacao')
+def cadastro_doacao(ong):
+    ong = Ong.query.filter_by(nickname=ong).first_or_404()
+    form = LoginForm()
+    return render_template('cadastro-doacao.html',
+                           form=form,
+                           ong=ong)
 
 
 @app.route('/<ong>/contato', methods=['GET', 'POST'])
@@ -129,6 +128,10 @@ def contato():
     return render_template('contato.html', form=form)
 
 
-@app.route('/instituicao-admin')
-def instituicao_admin():
-    return render_template('instituicao-admin.html')
+@app.route('/<ong>/admin')
+def instituicao_admin(ong):
+    ong = Ong.query.filter_by(nickname=ong).first_or_404()
+    form = LoginForm()
+    return render_template('instituicao-admin.html', 
+                           form=form,
+                           ong=ong)
