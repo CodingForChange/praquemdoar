@@ -1,5 +1,6 @@
 {%extends "base.html" %}
-{%block content%}							
+{%block content%}
+	{% include 'descricao-instituicao.html' %}
 	<section class="bl-cad row">
 		<section class="large-offset-2 large-8 columns">
 			<h2>Pedidos de Doações</h2>
@@ -20,7 +21,9 @@
 				<span class="label-tags">Tags</span>
 				<span class="label round gray">{{doacao.tags}}</span>
 				<div>
-                    <span class="label round prioridade"><i class="fa fa-angle-double-up"></i>{{doacao.prioridade}}</span>
+					{% if doacao.prioridade %}
+                    	<span class="label round prioridade"><i class="fa fa-angle-double-up"></i>{{doacao.prioridade}}</span>
+                    {% endif %}
                     {% if doacao.retira %}
 					<span class="label round retirar"><i class="fa fa-truck"></i> Retira doação no Local</span>
                     {% endif %}
