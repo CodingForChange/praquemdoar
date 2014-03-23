@@ -52,4 +52,4 @@ class SearchForm(Form):
 
 class LoginForm(Form):
     login = TextField('login', validators=[Required()])
-    senha = TextField('senha', validators=[Required()])
+    senha_login = TextField('senha_login', validators=[Required()])
