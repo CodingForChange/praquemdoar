@@ -64,6 +64,7 @@ class Doacao(db.Model):
     status_id = db.Column(db.Integer, db.ForeignKey('status.id'))
     data_cadastro = db.Column(db.DateTime)
     tags = db.Column(db.String(200))
+    slug = db.Column(db.String(120))
 
     def __repr__(self):  # pragma: no cover
         return '<Doacao %r>' % (self.nome)
