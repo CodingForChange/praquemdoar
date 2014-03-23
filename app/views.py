@@ -84,3 +84,8 @@ def doacao():
 @app.route('/instituicao-contato')
 def instituicao_contato():
     return render_template('instituicao-contato.html')
+
+
+@app.route('/cadastro-doacao')
+def cadastro_doacao():
+    return render_template('cadastro-doacao.html')

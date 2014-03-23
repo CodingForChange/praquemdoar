@@ -18,8 +18,39 @@ $(document).ready(function(){
 			// Animation complete.
 		});
 	});
+
+
+
+
+	$("#cep").mask("99999-999",{placeholder:"_",completed: consultaCEP});
+
+	
 	
 });// JavaScript Document
+consultaCEP = function(cep) {	
+
+		$.ajax({
+			url: 'http://api.postmon.com.br/v1/cep/'+cep,
+			type: 'GET',
+			dataType: 'json'
+		}).done(function(retorno) {
+
+			console.log(retorno);
+			// if(retorno.resultado == '1') {
+			// 	novoRetorno = {};
+			// 	novoRetorno.endereco = retorno.tipo_logradouro+" "+retorno.logradouro;
+			// 	novoRetorno.bairro = retorno.bairro;
+			// 	novoRetorno.estado = retorno.uf;
+			// 	novoRetorno.cidade = retorno.cidade;
+			// 	preencheEndereco(novoRetorno);
+			// } else {
+			// 	habilitaEnderecoManual();
+			// }
+
+		});
+		// console.log("http://api.postmon.com.br/v1/cep/*cep_a_consultar*");
+	
+};
 
 formataTwitter = function()
 {
