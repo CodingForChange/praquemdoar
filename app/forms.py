@@ -4,6 +4,13 @@ from wtforms.validators import Required, Length
 from app.models import Ong
 
 
+class ContatoForm(Form):
+    nome = TextField('nome', validators=[Required(), Length(max=120)])
+    email = TextField('email', validators=[Required(), Length(max=120)])
+    assunto = TextField('assunto', validators=[Required(), Length(max=120)])
+    mensagem = TextAreaField('mensagem', validators=[Required()])
+
+
 class NewsletterForm(Form):
     nome = TextField('nome', validators=[Required(), Length(max=120)])
     email = TextField('email', validators=[Required(), Length(max=120)])

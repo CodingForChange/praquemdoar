@@ -1,0 +1,15 @@
+Você recebeu um email através do formulário de contato do
+**Pra Quem Doar**.
+
+Nome: {{name}}
+Assunto: {{subject}}
+Email: {{email}}
+Mensagem:
+{{message}}
+
+Atenciosamente, 
+Equipe Pra Quem Doar
+
+
+
+

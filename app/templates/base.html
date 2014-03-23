@@ -24,6 +24,9 @@
 <script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/static/js/foundation.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/static/js/messages_pt_br.js"></script>
+<script type="text/javascript" src="/static/js/jquery.maskedinput.min.js"></script>
 <script type="text/javascript" src="/static/js/index.js"></script>
 
     <meta name="title" content="Pra quem doar" />
@@ -67,7 +70,7 @@
 					<input type="submit" id="env-login" class="form-button" value="ENTRAR" />
 				</section>
 				<section class="large-2 columns link-cad">
-					<a href="#">NÃO TEM UMA CONTA?<span>CADASTRE-SE</span></a>
+					<a href="{{url_for('cadastro')}}">NÃO TEM UMA CONTA?<span>CADASTRE-SE</span></a>
 				</section>
 			</form>
 		</section>
@@ -76,7 +79,7 @@
 	<footer class="row">
 		<section class="large-6 columns left foot-left">
 			<a href="">POLITICA DE PRIVACIDADE</a>
-			<a href="">CONTATO</a>
+            <a href="{{url_for('contato')}}">CONTATO</a>
 		</section>
 		<section class="large-6 columns right foot-right">
 			<img src="/static/img/logo-foot.png" alt="Logo Pra quem doar footer" />
