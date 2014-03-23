@@ -598,6 +598,12 @@ footer{
 	color: #FFFFFF;
 	border-radius: 0px;
 	padding: 5px 25px;
+	margin-left: 10px;
+}
+
+
+
+.botao-site i, .botoes-contato .cadastrar-promocao i{
 	margin-right: 10px;
 }
 
@@ -607,7 +613,7 @@ footer{
 	color: #FFFFFF;
 	border-radius: 0px;
 	padding: 5px 25px;
-	margin-right: 10px;
+	margin-left: 10px;
 }
 
 .logout:hover{
