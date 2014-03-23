@@ -15,6 +15,35 @@ from config import TWITTER_API_KEY, TWITTER_API_SECRET
 from config import TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
 
 
+@app.route('/<ong>/<slug>/contato')
+def contato_doacao(ong, slug):
+    user = g.user
+    form = LoginForm()
+    form_contato = ContatoForm()
+    ong = Ong.query.filter_by(nickname=ong).first_or_404()
+    doacao = Doacao.query.filter_by(ong=ong, slug=slug).first_or_404()
+    if form.validate_on_submit():
+        ong = Ong.query.filter_by(nickname=form.login.data,
+                                  senha=md5(form.senha_login.data).hexdigest()
+                                  ).first_or_404()
+        login_user(ong)
+        return redirect(request.args.get('next') or
+                        url_for('ong_dashboard', ong=ong.nickname))
+    if form_contato.validate_on_submit():
+        contact_email('[Pra Quem Doar] ' + doacao.nome,
+                      form_contato.nome.data,
+                      form_contato.email.data,
+                      form_contato.mensagem.data,
+                      ong.email
+                      )
+        return redirect(url_for('doacao', ong=ong.nickname, slug=slug))
+    return render_template('contato_doacao.html', 
+                           user=user,
+                           form=form,
+                           form_contato=form_contato,
+                           doacao=doacao)
+
+
 @app.before_request
 def before_request():
     g.user = current_user
@@ -191,6 +220,7 @@ def cadastro_doacao(ong):
 
 @app.route('/<ong>/contato', methods=['GET', 'POST'])
 def ong_contato(ong):
+    user = g.user
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
     form = LoginForm()
     form_contato = ContatoForm()
@@ -211,7 +241,7 @@ def ong_contato(ong):
                       ong.email
                       )
         return redirect(url_for('ong_contato', ong=ong.nickname))
-    return render_template('ong_contato.html', ong=ong, form=form, form_contato=form_contato)
+    return render_template('ong_contato.html', ong=ong, form=form, form_contato=form_contato, user=user)
 
 
 @app.route('/contato', methods=['GET', 'POST'])
