@@ -15,6 +15,38 @@ from config import TWITTER_API_KEY, TWITTER_API_SECRET
 from config import TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
 
 
+@app.errorhandler(404)
+def not_found(error):
+    user = g.user
+    form = LoginForm()
+    if form.validate_on_submit():
+        ong = Ong.query.filter_by(nickname=form.login.data,
+                                  senha=md5(form.senha_login.data).hexdigest()
+                                  ).first_or_404()
+        login_user(ong)
+        return redirect(request.args.get('next') or
+                        url_for('ong_dashboard', ong=ong.nickname))
+    return render_template('404.html',
+                           user=user,
+                           form=form)
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    user = g.user
+    form = LoginForm()
+    if form.validate_on_submit():
+        ong = Ong.query.filter_by(nickname=form.login.data,
+                                  senha=md5(form.senha_login.data).hexdigest()
+                                  ).first_or_404()
+        login_user(ong)
+        return redirect(request.args.get('next') or
+                        url_for('ong_dashboard', ong=ong.nickname))
+    return render_template('500.html', 
+                           user=user,
+                           form=form)
+
+
 @app.route('/<ong>/<slug>/contato')
 def contato_doacao(ong, slug):
     user = g.user
