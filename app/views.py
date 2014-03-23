@@ -121,6 +121,7 @@ def doacao():
 
 @app.route('/<ong>/doacao')
 def cadastro_doacao(ong):
+    user = g.user
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
     form = LoginForm()
     if form.validate_on_submit():
@@ -134,6 +135,7 @@ def cadastro_doacao(ong):
 
     return render_template('cadastro-doacao.html',
                            form=form,
+                           user=user,
                            ong=ong)
 
 
