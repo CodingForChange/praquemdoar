@@ -52,9 +52,9 @@
 					<ul class="menu">
 						<li><a href="/ajuda"><i class="fa fa-question-circle"></i>AJUDA</a></li>
                         {% if user.is_authenticated() %}
-                        <li class="menu-login"><i class="fa fa-user"></i>{{user.nome}}</li>
+                        <li class="menu-login"><i class="fa fa-user"></i><a href="/{{user.nickname}}">{{user.nome}}</a></li>
                         {% else %}
-						<li class="menu-login"><a href="#"><i class="fa fa-user"></i>LOGIN</a></li>
+						<li class="menu-login btn-login"><a href="#"><i class="fa fa-user"></i>LOGIN</a></li>
                         {% endif %}
 					</ul>
 				</nav>
