@@ -109,6 +109,10 @@ $(document).ready(function(){
 	});
 	
 	$("#tags").tagsInput();
+
+	$("#btn-quero-ajudar").on("click", function() {
+		$(location).attr('href','contato');
+	});
 	
 	
 });// JavaScript Document

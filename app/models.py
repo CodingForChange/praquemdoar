@@ -57,6 +57,9 @@ class Doacao(db.Model):
     publicar = db.Column(db.Boolean)
     prioridade = db.Column(db.String(120))
 
+    def get_url(self):
+        return 'http://www.praquemdoar.com.br/' + self.ong.nickname + '/' + self.slug
+
     def __repr__(self):  # pragma: no cover
         return '<Doacao %r>' % (self.nome)
 
