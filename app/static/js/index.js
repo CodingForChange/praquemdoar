@@ -113,7 +113,8 @@ $(document).ready(function(){
 	$("#btn-quero-ajudar").on("click", function() {
 		$(location).attr('href','contato');
 	});
-	
+
+	$( "#acor-ajuda" ).accordion({ collapsible: true, autoHeight: false, active: false });	
 	
 });// JavaScript Document
 consultaCEP = function() {	

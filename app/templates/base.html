@@ -18,6 +18,8 @@
 <link href='/static/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700' rel='stylesheet' type='text/css'>
 <link href='/static/css/jquery.tagsinput.css' rel='stylesheet' type='text/css'>
+<link href='/static/css/jquery-ui.min.css' rel='stylesheet' type='text/css'>
+
 
 
 <script type="text/javascript" src="/static/js/modernizr.js"></script>	
@@ -27,6 +29,7 @@
 <script type="text/javascript" src="/static/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/static/js/messages_pt_br.js"></script>
 <script type="text/javascript" src="/static/js/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/static/js/index.js"></script>
 
    <!-- <meta name="title" content="Pra quem doar" />
@@ -47,7 +50,7 @@
 			<section class="large-offset-3 large-6 columns">
 				<nav role="navigation">
 					<ul class="menu">
-						<li><a href="#"><i class="fa fa-question-circle"></i>AJUDA</a></li>
+						<li><a href="ajuda"><i class="fa fa-question-circle"></i>AJUDA</a></li>
                         {% if user.is_authenticated() %}
                         <li class="menu-login"><i class="fa fa-user"></i>{{user.nome}}</li>
                         {% else %}
@@ -83,7 +86,7 @@
 	</section>
 	<footer class="row">
 		<section class="large-6 columns left foot-left">
-			<a href="">POLITICA DE PRIVACIDADE</a>
+			<a href="politica-privacidade">POLITICA DE PRIVACIDADE</a>
             <a href="{{url_for('contato')}}">CONTATO</a>
 		</section>
 		<section class="large-6 columns right foot-right">

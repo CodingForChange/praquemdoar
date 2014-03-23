@@ -299,6 +299,20 @@ def single():
     return render_template('single.html', form=form, user=user)
 
 
+@app.route('/ajuda')
+def ajuda():
+    user = g.user
+    form = LoginForm()
+    return render_template('ajuda.html', form=form, user=user)
+
+
+@app.route('/politica-privacidade')
+def politica():
+    user = g.user
+    form = LoginForm()
+    return render_template('politica.html', form=form, user=user)
+
+
 @app.route('/<ong>/admin')
 def instituicao_admin(ong):
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
