@@ -1,7 +1,7 @@
 {%extends "base.html" %}
 {%block content%}
 	<section class="bl-cad inst">					
-		<form action="" method="post" id="form-login" class="forms form-login">
+		<form action="#" method="post" id="form_login" class="forms form-login">
             {{form.hidden_tag()}}
 			<section class="row">
 				<section class="large-offset-2 large-8 columns">
@@ -9,12 +9,12 @@
 					<span>
 						<label for="cnpj">cnpj</label>
                         {{form.cnpj(required=True, placeholder='CNPJ*')}}
-						<i class="fa fa-search"></i>
+						<!--<i class="fa fa-search"></i>-->
 					</span>
 					<span>
 						<label for="nome">razao social</label>
                         {{form.nome(required=True, placeholder='Razão Social*')}}
-						<i class="fa fa-search"></i>
+						<!--<i class="fa fa-search"></i>-->
 					</span>					
 				</section>
 			</section>
@@ -54,6 +54,7 @@
 					<span>
 						<label for="descricao">Descrição</label>
                         {{form.descricao(placeholder='Descrição')}}
+						<small>200 caracteres</small>
 					</span>
 					<span>
 						<label for="website">Site da Instituição</label>
