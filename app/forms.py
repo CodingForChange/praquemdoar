@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form
-from wtforms import TextField, BooleanField, IntegerField
+from wtforms import TextField, BooleanField, IntegerField, TextAreaField
 from wtforms.validators import Required, Length
 from app.models import Ong
 
@@ -16,7 +16,8 @@ class CadastroForm(Form):
     nickname = TextField('nickname', validators=[Required()])
     senha = TextField('senha', validators=[Required(), Length(max=200)])
     logo = TextField('logo')
-    descricao = TextField('descricao', validators=[Length(max=200)])
+    descricao = TextAreaField('descricao', validators=[Length(max=200)])
+    website = TextField('website')
     twitter = TextField('twitter')
     facebook = TextField('facebook')
     googleplus = TextField('googleplus')
