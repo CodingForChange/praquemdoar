@@ -19,7 +19,7 @@ class NewsletterForm(Form):
 class CadastroForm(Form):
     nome = TextField('nome', validators=[Required(), Length(max=120)])
     email = TextField('email', validators=[Required(), Length(max=120)])
-    cnpj = IntegerField('cnpj', validators=[Required()])
+    cnpj = TextField('cnpj', validators=[Required()])
     nickname = TextField('nickname', validators=[Required()])
     senha = TextField('senha', validators=[Required(), Length(max=200)])
     logo = TextField('logo')
@@ -40,10 +40,13 @@ class DoacaoForm(Form):
     bairro = TextField('bairro', validators=[Required(), Length(max=120)])
     cidade = TextField('cidade', validators=[Required(), Length(max=120)])
     estado = TextField('estado', validators=[Required(), Length(max=2)])
-    cep = IntegerField('cep', validators=[Required()])
+    cep = TextField('cep', validators=[Required()])
     retira = BooleanField('retira', validators=[Required()])
     email = TextField('email')
     tags = TextField('tags', validators=[Required()])
+    categoria = TextField('categoria', validators=[Required()])
+    publicar = BooleanField('publicar')
+    prioridade = TextField('prioridade', validators=[Required()])
 
 
 class SearchForm(Form):

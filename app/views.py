@@ -9,6 +9,7 @@ from hashlib import md5
 from datetime import datetime
 from emails import contact_email
 from utils.name_utils import slug as slugfy
+from flask.ext.sqlalchemy import get_debug_queries
 
 
 @app.before_request
@@ -33,6 +34,7 @@ def search_results(query):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    user = g.user
     form_news = NewsletterForm()
     form_busca = SearchForm()
     form = LoginForm()
@@ -54,7 +56,8 @@ def index():
     return render_template('index.html',
                            form_news=form_news,
                            form_busca=form_busca,
-                           form=form)
+                           form=form,
+                           user=user)
 
 
 @lm.user_loader
@@ -83,6 +86,7 @@ def ong_dashboard(ong):
 
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
+    user = g.user
     form = LoginForm()
     form_cadastro = CadastroForm()
     if form_cadastro.validate_on_submit():
@@ -100,7 +104,7 @@ def cadastro():
                   )
         db.session.add(ong)
         db.session.commit()
-        return redirect(url_for('org_dashboard', ong=ong.nickname))
+        return redirect(url_for('ong_dashboard', ong=ong.nickname))
     if form.validate_on_submit():
         ong = Ong.query.filter_by(nickname=form.login.data,
                                   senha=md5(form.senha_login.data).hexdigest()
@@ -112,15 +116,31 @@ def cadastro():
 
     return render_template('cadastro.html',
                            form_cadastro=form_cadastro,
-                           form=form)
+                           form=form,
+                           user=user)
 
 
-@app.route('/doacao')
-def doacao():
-    return render_template('doacao.html')
+@app.route('/<ong>/<slug>')
+def doacao(ong, slug):
+    user = g.user
+    form = LoginForm()
+    doacao = Doacao.query.filter_by(ong=ong, slug=slug).first_or_404()
+    if form.validate_on_submit():
+        ong = Ong.query.filter_by(nickname=form.login.data,
+                                  senha=md5(form.senha_login.data).hexdigest()
+                                  ).first_or_404()
+        login_user(ong)
+        return redirect(request.args.get('next') or
+                        url_for('ong_dashboard',
+                            ong=ong.nickname))
+    return render_template('doacao.html',
+                            form=form,
+                            user=user,
+                            doacao=doacao)
 
 
 @app.route('/<ong>/doacao', methods=['GET', 'POST'])
+@login_required
 def cadastro_doacao(ong):
     user = g.user
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
@@ -147,7 +167,7 @@ def cadastro_doacao(ong):
                         retira=form_cadastro.retira.data,
                         email=form_cadastro.email.data,
                         tags=form_cadastro.tags.data,
-                        ong=Ong.query.get(ong.id)
+                        ong=Ong.query.get(ong.id),
                         slug=slugfy(form_cadastro.nome.data)
                         )
         db.session.add(doacao)
@@ -156,6 +176,7 @@ def cadastro_doacao(ong):
     return render_template('cadastro-doacao.html',
                            form=form,
                            user=user,
+                           form_cadastro=form_cadastro,
                            ong=ong)
 
 
@@ -213,3 +234,13 @@ def instituicao_admin(ong):
     return render_template('instituicao-admin.html', 
                            form=form,
                            ong=ong)
+
+
+@app.after_request
+def after_request(response):
+    for query in get_debug_queries():
+        log_msg = "DB QUERY: %s\nParams: %s\n Context: %s" % (query.statement,
+                                                              query.parameters,
+                                                              query.context)
+        app.logger.warning(log_msg)
+    return response

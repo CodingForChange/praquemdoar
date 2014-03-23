@@ -5,17 +5,20 @@
 			<h2>Pedidos de Doações</h2>
 			<section class="doa-descricao">
 				<span class="label round gray">24 minutos atrás </span>
-				<a href="#">editar</a>
-				<h2>CAMPANHA DO AGASALHO</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue nulla, suscipit eu sodales ut, eleifend vel justo. Nulla facilisi. Morbi tincidunt, sem eget posuere suscipit, turpis mi turpis duis.</p>
+                {% if user.is_authenticated() %}
+				<a href="">editar</a>
+                {% endif %}
+                <h2>{{doacao.nome}}</h2>
+                <p>{{doacao.descricao}}</p>
 			</section>
 			<section class="doa-tags">
 				<span class="label-tags">Tags</span>
-				<span class="label round gray">ROUPAS</span>
-				<span class="label round gray">COBERTORES</span>
+				<span class="label round gray">{{doacao.tags}}</span>
 				<div>
-					<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> Alta Prioridade</span>
+                    <span class="label round prioridade"><i class="fa fa-angle-double-up"></i>{{doacao.prioridade}}</span>
+                    {% if doacao.retira %}
 					<span class="label round retirar"><i class="fa fa-truck"></i> Retira doação no Local</span>
+                    {% endif %}
 				</div>
 			</section>
 			<section class="doa-end">

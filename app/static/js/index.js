@@ -33,7 +33,6 @@ $(document).ready(function(){
 		cnpj = cnpj.replace('.','');
 		cnpj = cnpj.replace('.','');
 		cnpj = cnpj.replace('-','');
-	      console.log(cnpj);
 		var numeros, digitos, soma, i, resultado, pos, tamanho, digitos_iguais;
 		digitos_iguais = 1;
 	      
@@ -84,7 +83,7 @@ $(document).ready(function(){
 		}
 	}, "Informe um CNPJ válido."); // Mensagem padrão
 	$("#cnpj").mask("999.999.999/9999-99");
-	$("#form_login").validate({
+	$("#form_cadastro").validate({
 		rules: {
 		   cnpj: {required: true, cnpj: true},
 		   senha: "required",
@@ -96,7 +95,7 @@ $(document).ready(function(){
 		   cnpj: { cnpj: 'CNPJ inválido'}
 		}
 		,submitHandler:function(form) {
-		   //$("#form-login").submit();
+		  $("#form_cadastro").submit();
 		}
 	});
 	
