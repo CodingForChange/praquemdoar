@@ -83,17 +83,20 @@ def before_request():
 
 @app.route('/search/<query>', methods=['GET', 'POST'])
 def search_results(query):
+    user = g.user
     form = LoginForm()
-    form_search = SearchForm()
+    form_busca = SearchForm()
     result_doacao = Doacao.query.filter(Doacao.tags.like('%' + query + '%'))
     result_ong = Ong.query.filter(Ong.nome.like('%' + query + '%'))
-    if form_search.validate_on_submit():
+    if form_busca.validate_on_submit():
         return redirect(url_for('search_results', query=form_search.search.data))
     return render_template('search.html',
                            query=query,
-                           results=results,
-                           form_search=form_search,
-                           form=form)
+                           result_doacao=result_doacao,
+                           result_ong=result_ong,
+                           form_busca=form_busca,
+                           form=form,
+                           user=user)
 
 
 @app.route('/', methods=['GET', 'POST'])

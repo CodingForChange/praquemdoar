@@ -3,14 +3,17 @@
 
 	<section class="search">
 		<section class="row">
-			<input type="text" id="busca" name="busca" class="busca" placeholder="o que você quer doar?" />
-			<i class="fa fa-search"></i>
-		</section>
+            <form action="" method="post" id="form_search" class="forms form-login">
+               {{form_busca.hidden_tag()}}
+               {{form_busca.search(placeholder='o que você quer doar?', class='busca')}}
+               <i class="fa fa-search"></i>
+           </form>
+        </section>
 	</section>
 
 	<section class="row">
 		<section class="large-12 columns box-query-busca">
-			Resultados para <span class="termo-busca">"XPTO"</span>
+            Resultados para <span class="termo-busca">"{{query}}"</span>
 		</section>
 
 	</section>
@@ -35,78 +38,22 @@
 			</section>
 
 			<section class="lista-pedidos">
-				
+                {% for item in result_doacao %}
 				<section class="item-doacao">
 					<span class="label round gray">24 minutos atrás</span>
-					<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> Alta Prioridade</span>
+                    <span class="label round prioridade"><i class="fa fa-angle-double-up"></i> {{item.prioridade}}</span>
 					<section class="titulo-doacao">
-						CAMPANHA DO AGASALHO
+                        <a href="{{url_for('doacao', ong=item.ong.nickname, slug=item.slug)}}">{{item.nome}}</a>
 					</section>
 					<section class="texto-doacao">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
-						<br /><br />
-						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
-					</section>
+                        {{item.descricao}}
+                    </section>
 					<section class="tags-doacao">
 						Tags 
-						<span class="label round gray">ROUPAS</span> 
-						<span class="label round gray">COBERTORES</span> 
+                        <span class="label round gray">{{item.tags}}</span> 
 					</section>
 				</section>
-
-				<section class="item-doacao">
-					<span class="label round gray">24 minutos atrás</span>
-					<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> Alta Prioridade</span>
-					<section class="titulo-doacao">
-						CAMPANHA DO AGASALHO
-					</section>
-					<section class="texto-doacao">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
-						<br /><br />
-						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
-					</section>
-					<section class="tags-doacao">
-						Tags 
-						<span class="label round gray">ROUPAS</span> 
-						<span class="label round gray">COBERTORES</span> 
-					</section>
-				</section>
-
-				<section class="item-doacao">
-					<span class="label round gray">24 minutos atrás</span>
-					<section class="titulo-doacao">
-						CAMPANHA DO AGASALHO
-					</section>
-					<section class="texto-doacao">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
-						<br /><br />
-						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
-					</section>
-					<section class="tags-doacao">
-						Tags 
-						<span class="label round gray">ROUPAS</span> 
-						<span class="label round gray">COBERTORES</span> 
-					</section>
-				</section>
-
-				<section class="item-doacao">
-					<span class="label round gray">24 minutos atrás</span>
-					<section class="titulo-doacao">
-						CAMPANHA DO AGASALHO
-					</section>
-					<section class="texto-doacao">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue odio massa, vitae placerat eros eleifend quis. Ut ac ultrices nisl. Vivamus purus odio, egestas in lacus et, luctus semper elit. Vestibulum quis tellus vehicula, accumsan metus a, faucibus metus. Nam tincidunt libero in purus posuere sagittis. Proin ac enim tellus. In sollicitudin fringilla justo, eu malesuada turpis facilisis sit amet. Aenean volutpat porttitor mauris ut pulvinar. Suspendisse laoreet eros sit amet nunc luctus sollicitudin.
-						<br /><br />
-						Sed sed dictum mi, ac suscipit arcu. Morbi hendrerit nibh eu aliquet auctor. Maecenas sit amet lacus aliquam, vulputate mi sed, tempus augue. Donec pellentesque vestibulum dolor, ut luctus tellus euismod vel. Curabitur id malesuada urna. Vestibulum at nunc nec ipsum mattis rhoncus sed a ipsum. Duis id vestibulum nibh. Integer et risus mattis, molestie libero non, accumsan ipsum. Maecenas et arcu imperdiet, ultrices libero in, tincidunt sem. 
-					</section>
-					<section class="tags-doacao">
-						Tags 
-						<span class="label round gray">ROUPAS</span> 
-						<span class="label round gray">COBERTORES</span> 
-					</section>
-				</section>
-
-
+                {% endfor %}
 			</section>
 
 			<section class="sec-paginacao">
