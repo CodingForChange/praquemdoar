@@ -3,11 +3,12 @@ from flask.ext.login import login_user, logout_user
 from flask.ext.login import current_user, login_required
 from app import app, db, lm
 from forms import NewsletterForm, SearchForm, CadastroForm, LoginForm
-from forms import ContatoForm
-from models import Newsletter, Ong
+from forms import ContatoForm, DoacaoForm
+from models import Newsletter, Ong, Doacao
 from hashlib import md5
 from datetime import datetime
 from emails import contact_email
+from utils.name_utils import slug as slugfy
 
 
 @app.before_request
@@ -119,11 +120,12 @@ def doacao():
     return render_template('doacao.html')
 
 
-@app.route('/<ong>/doacao')
+@app.route('/<ong>/doacao', methods=['GET', 'POST'])
 def cadastro_doacao(ong):
     user = g.user
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
     form = LoginForm()
+    form_cadastro = DoacaoForm()
     if form.validate_on_submit():
         ong = Ong.query.filter_by(nickname=form.login.data,
                                   senha=md5(form.senha_login.data).hexdigest()
@@ -132,7 +134,25 @@ def cadastro_doacao(ong):
         return redirect(request.args.get('next') or
                         url_for('ong_dashboard',
                             ong=ong.nickname))
-
+    if form_cadastro.validate_on_submit():
+        doacao = Doacao(nome=form_cadastro.nome.data,
+                        descricao=form_cadastro.descricao.data,
+                        logradouro=form_cadastro.logradouro.data,
+                        numero=form_cadastro.numero.data,
+                        complemento=form_cadastro.complemento.data,
+                        bairro=form_cadastro.bairro.data,
+                        cidade=form_cadastro.cidade.data,
+                        estado=form_cadastro.estado.data,
+                        cep=form_cadastro.cep.data,
+                        retira=form_cadastro.retira.data,
+                        email=form_cadastro.email.data,
+                        tags=form_cadastro.tags.data,
+                        ong=Ong.query.get(ong.id)
+                        slug=slugfy(form_cadastro.nome.data)
+                        )
+        db.session.add(doacao)
+        db.session.commit()
+        return redirect(url_for('doacao', ong=ong.nickname, slug=doacao.slug))
     return render_template('cadastro-doacao.html',
                            form=form,
                            user=user,
@@ -179,16 +199,11 @@ def contato():
     return render_template('contato.html', form=form, form_contato=form_contato)
 
 
-@app.route('/busca')
-def busca():
-    form = LoginForm()
-    return render_template('busca.html', form=form)
-
-
 @app.route('/single')
 def single():
+    user = g.user
     form = LoginForm()
-    return render_template('single.html', form=form)
+    return render_template('single.html', form=form, user=user)
 
 
 @app.route('/<ong>/admin')
