@@ -919,4 +919,20 @@ select {
 		width: 100%;
 		text-align: center;
 	}
+	
+	.header-single, .corpo-single{
+		padding: 0px 15px;
+	}
+	
+	.tit-erro-pg {
+		color: #525252;
+		font-size: 95px;
+		margin:0px;
+		text-align: center;
+		width: 100%;
+	}
+	
+	.aviso-erro-pg{
+		padding: 0px 15px;
+	}
 }
