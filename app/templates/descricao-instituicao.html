@@ -2,6 +2,7 @@
 	<section class="row">
 		<section class="large-2 columns logo-instituicao">
 			<img src='static/img/no_photo.png'/>
+			<section class="editar-instituicao"><a href="#">EDITAR</a></section>
 		</section>
 		<section class="large-7 columns texto-instituicao">
             <h2>{{ong.nome}}</h2>
@@ -10,6 +11,8 @@
                 {% if ong.website %}
                 <a href='{{ong.website}}' class='botao-site'>VISITE O SITE</a>
                 {% endif %}
+
+                <a href="#" class="cadastrar-promocao">Cadastrar Promoção</a>
 			</section>
 		</section>
 		<section class="large-3 columns">

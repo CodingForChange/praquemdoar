@@ -462,6 +462,14 @@ footer{
 	padding: 5px 25px;
 }
 
+.botoes-contato .cadastrar-promocao{
+	border: none;
+	background: #0088b0;
+	color: #FFFFFF;
+	border-radius: 0px;
+	padding: 5px 25px;
+}
+
 .botoes-contato .botao-contato{
 	border: none;
 	background: #006EB9;
@@ -607,6 +615,14 @@ footer{
 
 .termo-busca {
 	color: #2B2B2B;
+}
+
+.editar-instituicao {
+	text-align: center;
+}
+
+.editar-instituicao a {
+	border-bottom: 1px solid #2795B6;
 }
 
 select {
