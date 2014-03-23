@@ -10,6 +10,9 @@ from datetime import datetime
 from emails import contact_email
 from utils.name_utils import slug as slugfy
 from flask.ext.sqlalchemy import get_debug_queries
+from TwitterAPI import TwitterAPI
+from config import TWITTER_API_KEY, TWITTER_API_SECRET
+from config import TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
 
 
 @app.before_request
@@ -175,6 +178,9 @@ def cadastro_doacao(ong):
                         )
         db.session.add(doacao)
         db.session.commit()
+        api = TwitterAPI(TWITTER_API_KEY, TWITTER_API_SECRET,
+                           TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET)
+        tweet = api.request('statuses/update', {'status': '#Preciso ' + doacao.nome + ' ' + doacao.get_url() + ' #' + doacao.ong.nickname })
         return redirect(url_for('doacao', ong=ong.nickname, slug=doacao.slug))
     return render_template('cadastro-doacao.html',
                            form=form,
