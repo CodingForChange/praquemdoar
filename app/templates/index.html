@@ -7,8 +7,11 @@
 	</section>
 	<section class="search">
 		<section class="row">
-			<input type="text" id="busca" name="busca" class="busca" placeholder="o que você quer doar?" />
+            <form action="" method="post" id="form_search" class="forms form-login">
+			    {{form_busca.hidden_tag()}}
+                {{form_busca.search(placeholder='o que você quer doar?', class='busca')}}
 			<i class="fa fa-search"></i>
+        </form>
 		</section>
 	</section>
 

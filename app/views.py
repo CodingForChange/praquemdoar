@@ -15,6 +15,12 @@ from config import TWITTER_API_KEY, TWITTER_API_SECRET
 from config import TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
 
 
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+
 @app.errorhandler(404)
 def not_found(error):
     user = g.user
@@ -83,17 +89,20 @@ def before_request():
 
 @app.route('/search/<query>', methods=['GET', 'POST'])
 def search_results(query):
+    user = g.user
     form = LoginForm()
-    form_search = SearchForm()
+    form_busca = SearchForm()
     result_doacao = Doacao.query.filter(Doacao.tags.like('%' + query + '%'))
     result_ong = Ong.query.filter(Ong.nome.like('%' + query + '%'))
-    if form_search.validate_on_submit():
+    if form_busca.validate_on_submit():
         return redirect(url_for('search_results', query=form_search.search.data))
     return render_template('search.html',
                            query=query,
-                           results=results,
-                           form_search=form_search,
-                           form=form)
+                           result_doacao=result_doacao,
+                           result_ong=result_ong,
+                           form_busca=form_busca,
+                           form=form,
+                           user=user)
 
 
 @app.route('/', methods=['GET', 'POST'])
