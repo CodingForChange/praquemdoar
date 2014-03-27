@@ -1,7 +1,11 @@
 <section class="banner int-banner">
 	<section class="row">
 		<section class="large-2 columns logo-instituicao">
+            {% if ong.logo %}
+            <img src='/static/uploads/{{ong.logo}}' alt="{{ong.nome}}" />
+            {% else %}
 			<img src='/static/img/no_photo.png' alt="Sem imagem" />
+            {% endif %}
             {% if user.is_authenticated() %}
 			<section class="editar-instituicao"><a href="#"><i class="fa fa-pencil"></i>EDITAR</a></section>
             {% endif %}
