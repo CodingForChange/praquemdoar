@@ -648,7 +648,7 @@ th.hide-for-xlarge {
 
   .show-for-large,
   .show-for-large-down {
-    display: none !important; }
+//    display: none !important; }
 
   .hide-for-large,
   .hide-for-large-down {

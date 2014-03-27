@@ -1,4 +1,6 @@
+import os
 from flask import render_template, redirect, session, url_for, request, g
+from flask import send_from_directory
 from flask.ext.login import login_user, logout_user
 from flask.ext.login import current_user, login_required
 from app import app, db, lm
@@ -13,6 +15,13 @@ from flask.ext.sqlalchemy import get_debug_queries
 from TwitterAPI import TwitterAPI
 from config import TWITTER_API_KEY, TWITTER_API_SECRET
 from config import TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
+from config import ALLOWED_EXTENSIONS, UPLOAD_FOLDER
+from werkzeug.utils import secure_filename
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 @app.route('/logout')
@@ -163,6 +172,7 @@ def cadastro():
     form = LoginForm()
     form_cadastro = CadastroForm()
     if form_cadastro.validate_on_submit():
+        file = request.files['logo']
         ong = Ong(nome=form_cadastro.nome.data,
                   cnpj=form_cadastro.cnpj.data,
                   nickname=form_cadastro.nickname.data,
@@ -173,8 +183,12 @@ def cadastro():
                   twitter=form_cadastro.twitter.data,
                   facebook=form_cadastro.facebook.data,
                   googleplus=form_cadastro.googleplus.data,
-                  data_cadastro=datetime.now()
+                  data_cadastro=datetime.now(),
+                  logo=file.filename
                   )
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(UPLOAD_FOLDER, filename))
         db.session.add(ong)
         db.session.commit()
         return redirect(url_for('ong_dashboard', ong=ong.nickname))

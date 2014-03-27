@@ -1,7 +1,7 @@
 {%extends "base.html" %}
 {%block content%}
 	<section class="bl-cad inst">					
-		<form action="" method="post" id="form_cadastro" class="forms form-login">
+		<form action="" method="post" id="form_cadastro" class="forms form-login" enctype=multipart/form-data>
             {{form_cadastro.hidden_tag()}}
 			<section class="row">
 				<section class="large-offset-2 large-8 columns">
@@ -55,7 +55,7 @@
 							<input type="text" id="logo_hidden" name="logo_hidden" placeholder="Logo da Instituição" />
 						</div>
 						<input type="file" id="logo" name="logo" placeholder="Logo da Instituição" />
-						<!--<input type="file" id="logo" name="logo" placeholder="Logo da Instituição" />-->
+						<input type="file" id="logo" name="logo" placeholder="Logo da Instituição" />
 					</span>
 					<span>
 						<label for="descricao">Descrição</label>
