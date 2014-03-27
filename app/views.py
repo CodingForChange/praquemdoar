@@ -247,7 +247,8 @@ def cadastro_doacao(ong):
                         url_for('ong_dashboard',
                             ong=ong.nickname))
     if form_cadastro.validate_on_submit():
-        doacao = Doacao(nome=form_cadastro.nome.data,
+        doacao = Doacao(categoria=form_cadastro.categoria.data,
+                        nome=form_cadastro.nome.data,
                         descricao=form_cadastro.descricao.data,
                         logradouro=form_cadastro.logradouro.data,
                         numero=form_cadastro.numero.data,
@@ -262,7 +263,8 @@ def cadastro_doacao(ong):
                         ong_id=ong.id,
                         slug=slugfy(form_cadastro.nome.data),
                         status_id=1,
-                        data_cadastro=datetime.now()
+                        data_cadastro=datetime.now(),
+                        prioridade=form_cadastro.prioridade.data
                         )
         db.session.add(doacao)
         db.session.commit()

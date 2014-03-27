@@ -15,7 +15,7 @@
             {{ong.descricao}}
 			<section class="botoes-contato">
                 {% if ong.website %}
-                <a href='{{ong.website}}' class='botao-site'><i class="fa fa-globe" target='_blank'></i>VISITE O SITE</a>
+                <a href='{{ong.website}}' class='botao-site' target='_blank'><i class="fa fa-globe"></i>VISITE O SITE</a>
                 {% endif %}
                 {% if user.is_authenticated() %}
                 <a href="{{url_for('cadastro_doacao', ong=ong.nickname)}}" class="cadastrar-promocao"><i class="fa fa-plus"></i>Cadastrar Doação</a>
