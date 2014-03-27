@@ -6,7 +6,7 @@
             {% else %}
 			<img src='/static/img/no_photo.png' alt="Sem imagem" />
             {% endif %}
-            {% if user.is_authenticated() %}
+            {% if user.is_authenticated() and user.id == ong.id %}
 			<section class="editar-instituicao"><a href="#"><i class="fa fa-pencil"></i>EDITAR</a></section>
             {% endif %}
 		</section>
@@ -17,10 +17,10 @@
                 {% if ong.website %}
                 <a href='{{ong.website}}' class='botao-site' target='_blank'><i class="fa fa-globe"></i>VISITE O SITE</a>
                 {% endif %}
-                {% if user.is_authenticated() %}
+                {% if user.is_authenticated() and user.id == ong.id %}
                 <a href="{{url_for('cadastro_doacao', ong=ong.nickname)}}" class="cadastrar-promocao"><i class="fa fa-plus"></i>Cadastrar Doação</a>
 		{% endif %}
-        {% if user.is_authenticated() %}
+        {% if user.is_authenticated() and user.id == ong.id %}
         <a href="{{url_for('logout')}}" class="logout"><i class="fa fa-times"></i>LOGOUT</a>
         {% endif %}
 			</section>
