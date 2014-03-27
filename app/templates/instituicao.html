@@ -26,7 +26,7 @@
 					
 					<section class="item-doacao">
 						<span class="label round gray">24 minutos atrás</span>
-	                    {% if item.prioridade %}
+	                    {% if item.prioridade == 'Alta Prioridade'%}
 	                    	<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> {{item.prioridade}}</span>
 	                    {% endif %}
 						<section class="titulo-doacao">

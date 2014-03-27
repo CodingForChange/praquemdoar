@@ -21,7 +21,7 @@
 				<span class="label-tags">Tags</span>
 				<span class="label round gray">{{doacao.tags}}</span>
 				<div>
-					{% if doacao.prioridade %}
+					{% if doacao.prioridade == 'Alta Prioridade' %}
                     	<span class="label round prioridade"><i class="fa fa-angle-double-up"></i>{{doacao.prioridade}}</span>
                     {% endif %}
                     {% if doacao.retira %}
