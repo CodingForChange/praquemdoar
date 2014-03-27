@@ -173,13 +173,16 @@ def cadastro():
     form_cadastro = CadastroForm()
     if form_cadastro.validate_on_submit():
         file = request.files['logo']
+        website = form_cadastro.website.data
+        if 'http://' not in website:
+            website = 'http://' + website
         ong = Ong(nome=form_cadastro.nome.data,
                   cnpj=form_cadastro.cnpj.data,
                   nickname=form_cadastro.nickname.data,
                   senha=md5(form_cadastro.senha.data).hexdigest(),
                   email=form_cadastro.email.data,
                   descricao=form_cadastro.descricao.data,
-                  website=form_cadastro.website.data,
+                  website=website,
                   twitter=form_cadastro.twitter.data,
                   facebook=form_cadastro.facebook.data,
                   googleplus=form_cadastro.googleplus.data,
