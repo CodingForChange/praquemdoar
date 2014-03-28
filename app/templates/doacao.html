@@ -19,7 +19,9 @@
 			</section>
 			<section class="doa-tags">
 				<span class="label-tags">Tags</span>
-				<span class="label round gray">{{doacao.tags}}</span>
+                {% for tag in doacao.tags.split(',') %}
+				<span class="label round gray">{{tag}}</span>
+                {% endfor %}
 				<div>
 					{% if doacao.prioridade == 'Alta Prioridade' %}
                     	<span class="label round prioridade"><i class="fa fa-angle-double-up"></i>{{doacao.prioridade}}</span>

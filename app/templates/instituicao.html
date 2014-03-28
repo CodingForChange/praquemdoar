@@ -37,7 +37,9 @@
 	                    </section>
 						<section class="tags-doacao">
 							Tags 
-							<span class="label round gray">{{item.tags}}</span>
+                            {% for tag in item.tags.split(',') %}
+							<span class="label round gray">{{tag}}</span>
+                            {% endfor %}
 						</section>
 	                    {% if user.is_authenticated() %}
 	                    <section class="situacao-pedido">
