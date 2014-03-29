@@ -16,6 +16,7 @@ from TwitterAPI import TwitterAPI
 from config import TWITTER_API_KEY, TWITTER_API_SECRET
 from config import TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET
 from config import ALLOWED_EXTENSIONS, UPLOAD_FOLDER
+from config import POST_PER_PAGE
 from werkzeug.utils import secure_filename
 
 
@@ -205,10 +206,15 @@ def editar_ong(ong):
 
 
 @app.route('/<ong>', methods=['GET', 'POST'])
-def ong_dashboard(ong):
+@app.route('/<ong>/index', methods=['GET', 'POST'])
+@app.route('/<ong>/index/<int:index>', methods=['GET', 'POST'])
+def ong_dashboard(ong, index=1):
     user = g.user
     form = LoginForm()
     ong = Ong.query.filter_by(nickname=ong).first_or_404()
+    doacoes = Doacao.query.filter_by(ong=ong).paginate(index,
+                                                       POST_PER_PAGE,
+                                                       False)
     if form.validate_on_submit():
         ong = Ong.query.filter_by(nickname=form.login.data,
                                   senha=md5(form.senha_login.data).hexdigest()
@@ -220,7 +226,8 @@ def ong_dashboard(ong):
     return render_template('instituicao.html',
                            ong=ong,
                            form=form,
-                           user=user)
+                           user=user,
+                           doacoes=doacoes)
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])

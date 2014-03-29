@@ -20,3 +20,5 @@ TWITTER_ACCESS_SECRET = 'Y8H9z6CbUIrVsYHdshXFcJAdOVLzvyqf2HaeRHy73l6Hl'
 
 UPLOAD_FOLDER = os.path.join(basedir, 'app/static/uploads')
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+
+POST_PER_PAGE = 5
