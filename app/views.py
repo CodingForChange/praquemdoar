@@ -147,6 +147,63 @@ def load_user(id):
     return Ong.query.get(int(id))
 
 
+@app.route('/<ong>/editar', methods=['GET', 'POST'])
+@login_required
+def editar_ong(ong):
+    user = g.user
+    form = LoginForm()
+    form_editar = CadastroForm()
+    if form.validate_on_submit():
+        ong = Ong.query.filter_by(nickname=form.login.data,
+                                  senha=md5(form.senha_login.data).hexdigest()
+                                  ).first_or_404()
+        login_user(ong)
+        return redirect(request.args.get('next') or
+                        url_for('ong_dashboard',
+                                ong=ong.nickname))
+
+    ong = Ong.query.filter_by(nickname=ong).first_or_404()
+
+    if form_editar.validate_on_submit():
+        file = request.files['logo']
+        website = form_editar.website.data
+        if 'http://' not in website:
+            website = 'http://' + website
+        
+        ong.nome = form_editar.nome.data
+        ong.cnpj = form_editar.cnjp.data
+        ong.nickname = form_editar.nickname.data
+        ong.senha = md5(form_editar.senha.data).hexdigest()
+        ong.email = form_editar.email.data
+        ong.descricao = form_editar.descricao.data
+        ong.website = website
+        ong.twitter = form_editar.twitter.data
+        ong.facebook = form_editar.facebook.data
+        ong.googleplus = form_editar.googleplus.data
+        ong.logo = file.filename
+
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(UPLOAD_FOLDER, filename))
+        db.session.commit()
+        return redirect(url_for('ong_dashboard', ong=ong.nickname))
+    else:
+        form_editar.nome.data = ong.nome
+        form_editar.cnpj.data = ong.cnpj
+        form_editar.nickname.data = ong.nickname
+        form_editar.email.data = ong.email
+        form_editar.descricao.data = ong.descricao
+        form_editar.website.data = ong.website
+        form_editar.twitter.data = ong.twitter
+        form_editar.facebook.data = ong.facebook
+        form_editar.googleplus.data = ong.googleplus
+
+        return render_template('cadastro.html',
+                               form_cadastro=form_editar,
+                               form=form,
+                               user=user)
+
+
 @app.route('/<ong>', methods=['GET', 'POST'])
 def ong_dashboard(ong):
     user = g.user
@@ -159,7 +216,7 @@ def ong_dashboard(ong):
         login_user(ong)
         return redirect(request.args.get('next') or
                         url_for('ong_dashboard',
-                            ong=ong.nickname))
+                                ong=ong.nickname))
     return render_template('instituicao.html',
                            ong=ong,
                            form=form,

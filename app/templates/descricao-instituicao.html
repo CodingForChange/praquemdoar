@@ -7,7 +7,7 @@
 			<img src='/static/img/no_photo.png' alt="Sem imagem" />
             {% endif %}
             {% if user.is_authenticated() and user.id == ong.id %}
-			<section class="editar-instituicao"><a href="#"><i class="fa fa-pencil"></i>EDITAR</a></section>
+            <section class="editar-instituicao"><a href="{{url_for('editar_ong', ong=ong.nickname)}}"><i class="fa fa-pencil"></i>EDITAR</a></section>
             {% endif %}
 		</section>
 		<section class="large-7 columns texto-instituicao">
