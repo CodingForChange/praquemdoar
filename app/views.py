@@ -274,7 +274,7 @@ def cadastro():
                            user=user)
 
 
-@app.route('/<ong>/<slug>')
+@app.route('/<ong>/<slug>', methods=['GET', 'POST'])
 def doacao(ong, slug):
     user = g.user
     form = LoginForm()
