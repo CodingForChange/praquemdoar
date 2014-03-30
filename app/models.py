@@ -1,3 +1,4 @@
+import urllib
 from hashlib import md5
 from datetime import datetime
 from app import db
@@ -59,6 +60,14 @@ class Doacao(db.Model):
 
     def get_url(self):
         return 'http://www.praquemdoar.com.br/' + self.ong.nickname + '/' + self.slug
+
+    def url_token(self):
+        logradouro = self.logradouro.replace(' ', '+')
+        numero = self.numero
+        bairro = self.bairro.replace(' ', '+')
+        cidade = self.cidade.replace(' ', '+')
+        estado = self.estado.replace(' ', '+')
+        return logradouro + '+' + numero + '+' + bairro + '+' + cidade + '+' + estado
 
     def __repr__(self):  # pragma: no cover
         return '<Doacao %r>' % (self.nome)
