@@ -55,7 +55,7 @@
 						</section>
 	                    {% if user.is_authenticated() %}
 	                    <section class="situacao-pedido">
-	                        Status do Pedido <span class="status-pedido">Ativo</span> <section class="editar-pedido"><a href="#">Editar</a></section> 
+                            Status do Pedido <span class="status-pedido">Ativo</span> <section class="editar-pedido"><a href="{{url_for('editar_doacao', ong=item.ong.nickname, slug=item.slug)}}">Editar</a></section> 
 	                    </section>
 	                    {% endif %}
 	                </section>

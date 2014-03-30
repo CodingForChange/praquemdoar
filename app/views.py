@@ -25,6 +25,66 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
+@app.route('/<ong>/<slug>/editar', methods=['GET', 'POST'])
+@login_required
+def editar_doacao(ong, slug):
+    user = g.user
+    form = LoginForm()
+    form_editar = DoacaoForm()
+    if form.validate_on_submit():
+        ong = Ong.query.filter_by(nickname=form.login.data,
+                                  senha=md5(form.senha_login.data).hexdigest()
+                                  ).first_or_404()
+        login_user(ong)
+        return redirect(request.args.get('next') or
+                        url_for('ong_dashboard',
+                                ong=ong.nickname))
+    ong = Ong.query.filter_by(nickname=ong).first_or_404()
+    if user != ong:
+        abort(401)
+    doacao = Doacao.query.filter_by(ong=ong, slug=slug).first_or_404()
+    if form_editar.validate_on_submit():
+        doacao.categoria = form_editar.categoria.data
+        doacao.nome = form_editar.nome.data
+        doacao.descricao = form_editar.descricao.data
+        doacao.logradouro = form_editar.logradouro.data
+        doacao.numero = form_editar.numero.data
+        doacao.complemento = form_editar.complemento.data
+        doacao.bairro = form_editar.bairro.data
+        doacao.cidade = form_editar.cidade.data
+        doacao.estado = form_editar.estado.data
+        doacao.cep = form_editar.cep.data
+        doacao.retirar = form_editar.retirar.data
+        doacao.email = form_editar.email.data
+        doacao.tags = form_editar.tags.data
+        doacao.prioridade = form_editar.prioridade.data
+        
+        db.session.commit()
+
+        return redirect(url_for('doacao', ong=ong.nickname, slug=doacao.slug))
+    else:
+        form_editar.categoria.data = doacao.categoria
+        form_editar.nome.data = doacao.nome
+        form_editar.descricao.data = doacao.descricao
+        form_editar.logradouro.data = doacao.logradouro
+        form_editar.numero.data = doacao.numero
+        form_editar.complemento.data = doacao.complemento
+        form_editar.bairro.data = doacao.bairro
+        form_editar.cidade.data = doacao.cidade
+        form_editar.estado.data = doacao.estado
+        form_editar.cep.data = doacao.cep
+        form_editar.retirar.data = doacao.retirar
+        form_editar.email.data = doacao.email
+        form_editar.tags.data = doacao.tags
+        form_editar.prioridade.data = doacao.prioridade
+
+        return render_template('cadastro-doacao.html',
+                               form=form,
+                               user=user,
+                               form_cadastro=form_editar,
+                               ong=ong)
+
+
 @app.route('/logout')
 def logout():
     logout_user()
