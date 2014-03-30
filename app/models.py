@@ -1,4 +1,3 @@
-import urllib
 from hashlib import md5
 from datetime import datetime
 from app import db
