@@ -24,23 +24,35 @@
 
 			<section class="sec-paginacao">
 
-				<ul class="pagination"> 
-					<li class="arrow unavailable"><a href="">&laquo;</a></li> 
-					<li class="current"><a href="">1</a></li> 
-					<li><a href="">2</a></li> 
-					<li><a href="">3</a></li> 
-					<li><a href="">4</a></li> 
-					<li class="unavailable"><a href="">&hellip;</a></li> 
-					<li><a href="">12</a></li> 
-					<li><a href="">13</a></li> 
-					<li class="arrow"><a href="">&raquo;</a></li> 
+				<ul class="pagination">
+                    {% if result_doacao.has_prev %}
+                    <li class="arrow"><a href="{{url_for('search_results', query=query, index=result_doacao.prev_num)}}">&laquo;</a></li>
+                    {% else %}
+                    <li class="arrow unavailable"><a href="">&laquo;</a></li>
+                    {% endif %}
+                    {% for page in result_doacao.iter_pages() %}
+                        {% if page %}
+                            {% if page != result_doacao.page %}
+                            <li><a href="{{url_for('search_results', query=query, index=page)}}">{{page}}</a></li>
+                            {% else %}
+                            <li class="current"><a href="">{{page}}</a></li>
+                            {% endif %}
+                        {% else %}
+                            <li class="unavailable">&hellip;</li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if result_doacao.has_next %}
+                    <li class="arrow"><a href="{{url_for('search_results', query=query, index=result_doacao.next_num)}}">&raquo;</a></li>
+                    {% else %}
+                    <li class="arrow unavailable">&raquo;</li>
+                    {% endif %}
 				</ul>
 			</section>
 
 			<section class="lista-pedidos">
-                {% for item in result_doacao %}
+                {% for item in result_doacao.items %}
 				<section class="item-doacao">
-					<span class="label round gray">24 minutos atrás</span>
+                    <span class="label round gray">{{item.data_cadastro.strftime('%H:%M %d/%m/%Y')}}</span>
 					{% if item.prioridade %}
                     	<span class="label round prioridade"><i class="fa fa-angle-double-up"></i> {{item.prioridade}}</span>
                     {% endif %}
@@ -60,17 +72,29 @@
 
 			<section class="sec-paginacao">
 
-				<ul class="pagination"> 
-					<li class="arrow unavailable"><a href="">&laquo;</a></li> 
-					<li class="current"><a href="">1</a></li> 
-					<li><a href="">2</a></li> 
-					<li><a href="">3</a></li> 
-					<li><a href="">4</a></li> 
-					<li class="unavailable"><a href="">&hellip;</a></li> 
-					<li><a href="">12</a></li> 
-					<li><a href="">13</a></li> 
-					<li class="arrow"><a href="">&raquo;</a></li> 
-				</ul>
+				<ul class="pagination">
+                    {% if result_doacao.has_prev %}
+                    <li class="arrow"><a href="{{url_for('search_results', query=query, index=result_doacao.prev_num)}}">&laquo;</a></li>
+                    {% else %}
+                    <li class="arrow unavailable"><a href="">&laquo;</a></li>
+                    {% endif %}
+                    {% for page in result_doacao.iter_pages() %}
+                        {% if page %}
+                            {% if page != result_doacao.page %}
+                            <li><a href="{{url_for('search_results', query=query, index=page)}}">{{page}}</a></li>
+                            {% else %}
+                            <li class="current"><a href="">{{page}}</a></li>
+                            {% endif %}
+                        {% else %}
+                            <li class="unavailable">&hellip;</li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if result_doacao.has_next %}
+                    <li class="arrow"><a href="{{url_for('search_results', query=query, index=result_doacao.next_num)}}">&raquo;</a></li>
+                    {% else %}
+                    <li class="arrow unavailable">&raquo;</li>
+                    {% endif %}
+	  		    </ul>
 			</section>
 
 		</section>
