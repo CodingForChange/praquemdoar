@@ -181,6 +181,8 @@ def index():
     form_news = NewsletterForm()
     form_busca = SearchForm()
     form = LoginForm()
+    doacoes = Doacao.query.count()
+    concluidas = Doacao.query.filter_by(status_id=3).count()
     if form_news.validate_on_submit():
         news = Newsletter(nome=form_news.nome.data,
                           email=form_news.email.data)
@@ -200,7 +202,9 @@ def index():
                            form_news=form_news,
                            form_busca=form_busca,
                            form=form,
-                           user=user)
+                           user=user,
+                           doacoes=doacoes,
+                           concluidas=concluidas)
 
 
 @lm.user_loader
