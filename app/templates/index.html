@@ -50,17 +50,10 @@
 					<div class="box-categoria">
 						<h2><i class="fa fa-tags"></i> Categorias e tags</h2>
 						<div class="tag-container">
-							<span class="label round"><a href="/search/roupas">ROUPAS</a></span>
-							<span class="label round"><a href="/search/móveis">MÓVEIS</a></span>
-							<span class="label round"><a href="/search/alimentos">ALIMENTOS</a></span>
-							<span class="label round"><a href="/search/higine%20pessoal">HIGIENE PESSOAL</a></span>
-							<span class="label round"><a href="/search/cobertores">COBERTORES</a></span>
-
-							<span class="label round">COBERTORES</span>
-							<span class="label round">COBERTORES</span>
-							<span class="label round">COBERTORES</span>
-
-						</div>
+                            {% for tag in tags %}
+                            <span class="label round"><a href="{{url_for('search_results', query=tag)}}">{{tag.upper()}}</a></span>
+                            {% endfor %}
+							</div>
 					</div>
 				</div>
 

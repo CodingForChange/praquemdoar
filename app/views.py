@@ -158,11 +158,13 @@ def before_request():
 
 
 @app.route('/search/<query>', methods=['GET', 'POST'])
-def search_results(query):
+@app.route('/search/<query>/index', methods=['GET', 'POST'])
+@app.route('/search/<query>/index/<int:index>', methods=['GET', 'POST'])
+def search_results(query, index=1):
     user = g.user
     form = LoginForm()
     form_busca = SearchForm()
-    result_doacao = Doacao.query.filter(Doacao.tags.like('%' + query + '%'))
+    result_doacao = Doacao.query.filter(Doacao.tags.like('%' + query + '%')).paginate(index, POST_PER_PAGE, False)
     result_ong = Ong.query.filter(Ong.nome.like('%' + query + '%'))
     if form_busca.validate_on_submit():
         return redirect(url_for('search_results', query=form_busca.search.data))
@@ -183,6 +185,14 @@ def index():
     form = LoginForm()
     doacoes = Doacao.query.count()
     concluidas = Doacao.query.filter_by(status_id=3).count()
+    tags = Doacao.query.all()
+    itens = ''
+    for tag in tags:
+        itens += tag.tags + ','
+    for categoria in tags:
+        itens += categoria.categoria + ','
+    tags = itens.split(',')
+
     if form_news.validate_on_submit():
         news = Newsletter(nome=form_news.nome.data,
                           email=form_news.email.data)
@@ -204,7 +214,8 @@ def index():
                            form=form,
                            user=user,
                            doacoes=doacoes,
-                           concluidas=concluidas)
+                           concluidas=concluidas,
+                           tags=tags)
 
 
 @lm.user_loader
