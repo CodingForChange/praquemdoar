@@ -9,7 +9,7 @@ from forms import ContatoForm, DoacaoForm
 from models import Newsletter, Ong, Doacao
 from hashlib import md5
 from datetime import datetime
-from emails import contact_email
+from emails import contact_email, cadastro_email
 from utils.name_utils import slug as slugfy
 from flask.ext.sqlalchemy import get_debug_queries
 from TwitterAPI import TwitterAPI
@@ -333,6 +333,7 @@ def cadastro():
             file.save(os.path.join(UPLOAD_FOLDER, filename))
         db.session.add(ong)
         db.session.commit()
+        cadastro_email(ong)
         return redirect(url_for('ong_dashboard', ong=ong.nickname))
     if form.validate_on_submit():
         ong = Ong.query.filter_by(nickname=form.login.data,

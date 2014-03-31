@@ -26,6 +26,17 @@ def send_email(subject, sender_email, sender_name, recipients,
 
     send_async_email(msg)
 
+def cadastro_email(ong):
+    send_email(subject='[Pra Quem Doar] Bem Vindo!',
+               sender_name='Pra Quem Doar',
+               sender_email='no-reply@praquemdoar.com.br',
+               recipients=ong.email,
+               text_body=render_template('cadastro_email.txt',
+                                         ong=ong),
+               html_body=render_template('cadastro_email.html',
+                                         ong=ong)
+               )
+
 def contact_email(subject, name, email, message, contact_email):
     send_email(subject=subject,
                sender_name=name,

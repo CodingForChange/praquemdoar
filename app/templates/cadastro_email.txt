@@ -1,0 +1,15 @@
+Bem Vindo!
+
+Olá {{ong.nome}},
+Seja bem vindo ao Pra Quem Doar.
+Não perca mais tempo, cadastre seus pedidos de doações
+e divulgue nos canais sociais agora mesmo!
+
+Acessar o site! http://www.praquemdoar.com.br
+
+
+Atenciosamente,
+Equipe Pra Quem Doar
+
+
+
