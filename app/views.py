@@ -214,8 +214,9 @@ def index():
                            form=form,
                            user=user,
                            doacoes=doacoes,
-                           concluidas=concluidas,
-                           tags=tags)
+                           concluidas=concluidas
+                           , tags=tags
+                           )
 
 
 @lm.user_loader

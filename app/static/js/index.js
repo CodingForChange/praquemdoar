@@ -114,7 +114,15 @@ $(document).ready(function(){
 		$(location).attr('href','contato');
 	});
 
-	$( "#acor-ajuda" ).accordion({ collapsible: true, autoHeight: false, active: false });	
+	$( "#acor-ajuda" ).accordion({ collapsible: true, autoHeight: false, active: false });
+	
+	moment.lang('pt-br');
+	
+	$(".data-cad").each(function(){
+		$(this).text(moment($(this).text().trim(), "h:mm DD/MM/YYYY").fromNow());
+	});
+	
+	
 	
 });// JavaScript Document
 consultaCEP = function() {	
