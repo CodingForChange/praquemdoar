@@ -48,7 +48,10 @@ class DoacaoForm(Form):
     categoria = SelectField('categoria', choices=[('Roupas', 'Roupas'),
                                                    ('Dinheiro', 'Dinheiro'),
                                                    ('Moveis', 'Moveis'),
-                                                   ('Eletronicos', 'Eletronicos')],
+                                                   ('Eletronicos', 'Eletronicos'),
+                                                   ('Brinquedos','Brinquedos'),
+                                                   ('Alimentos', 'Alimentos'),
+                                                   ('Higiene', 'Higiene')],
                                          validators=[Required()])
     publicar = BooleanField('publicar')
     prioridade = SelectField('prioridade', choices=[('Alta Prioridade', 'Alta Prioridade'),
